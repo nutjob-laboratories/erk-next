@@ -149,8 +149,8 @@ class Erk(QMainWindow):
 					save_macros(userinput.MACROS,self.macrofile)
 
 			self.erk_is_quitting = True
-			if not self.block_plugins:
-				self.plugins.unload()
+			# if not self.block_plugins:
+			# 	self.plugins.unload()
 			if self.fullscreen==False:
 				config.DEFAULT_APP_WIDTH = self.width()
 				config.DEFAULT_APP_HEIGHT = self.height()
@@ -352,7 +352,7 @@ class Erk(QMainWindow):
 			self,
 			app,
 			info=None,
-			block_plugins=False,
+			#block_plugins=False,
 			block_settings=False,
 			block_toolbar=False,
 			configfile=None,
@@ -398,7 +398,7 @@ class Erk(QMainWindow):
 
 		self.block_install = block_install
 
-		self.block_plugins = block_plugins
+		#self.block_plugins = block_plugins
 
 		self.block_settings = block_settings
 
@@ -428,12 +428,12 @@ class Erk(QMainWindow):
 
 		self.macrofile = macrofile
 
-		self.cmdline_plugin = False
+		#self.cmdline_plugin = False
 		self.cmdline_script = False
 		self.cmdline_editor = False
 		self.cmdline_install = False
 
-		if self.block_plugins: self.cmdline_plugin = True
+		#if self.block_plugins: self.cmdline_plugin = True
 		if self.block_scripts: self.cmdline_script = True
 		if self.block_editor: self.cmdline_editor = True
 		if self.block_install: self.cmdline_install = True
@@ -552,10 +552,10 @@ class Erk(QMainWindow):
 				self.toolsMenu = QMenu()
 
 		# Plugins
-		if not self.block_plugins:
-			self.plugins = PluginCollection("plugins")
+		# if not self.block_plugins:
+		# 	self.plugins = PluginCollection("plugins")
 
-			self.display_load_errors()
+		# 	self.display_load_errors()
 
 		if not DO_NOT_DISPLAY_MENUS_OR_TOOLBAR:
 			self.buildMenuInterface()
@@ -788,10 +788,10 @@ class Erk(QMainWindow):
 			if self.block_scripts:
 				show_tool_menu = False
 
-				if not self.block_plugins:
-					if config.PLUGINS_ENABLED:
-						if config.DEVELOPER_MODE:
-							show_tool_menu = True
+				# if not self.block_plugins:
+				# 	if config.PLUGINS_ENABLED:
+				# 		if config.DEVELOPER_MODE:
+				# 			show_tool_menu = True
 
 		if show_tool_menu:
 
@@ -813,35 +813,35 @@ class Erk(QMainWindow):
 				entry = MenuAction(self,STYLE_MENU_ICON,STYLE_EDITOR_NAME,"Create and edit styles",25,self.showStyleDialog)
 				self.toolsMenu.addAction(entry)
 
-			if config.DEVELOPER_MODE:
+			# if config.DEVELOPER_MODE:
 
-				if config.PLUGINS_ENABLED and not self.block_plugins:
+			# 	if config.PLUGINS_ENABLED and not self.block_plugins:
 
-					s = textSeparator(self,"Plugin Development")
-					self.toolsMenu.addAction(s)
+			# 		s = textSeparator(self,"Plugin Development")
+			# 		self.toolsMenu.addAction(s)
 
-					entry = MenuAction(self,MENU_EDITOR_ICON,EDITOR_NAME,"Create and edit plugins",25,self.menuEditor)
-					self.toolsMenu.addAction(entry)
+			# 		entry = MenuAction(self,MENU_EDITOR_ICON,EDITOR_NAME,"Create and edit plugins",25,self.menuEditor)
+			# 		self.toolsMenu.addAction(entry)
 
-					self.expPackMenu = MenuAction(self,MENU_ARCHIVE_ICON,"Export plugin","Export an installed plugin",25,self.exportPackage)
-					self.toolsMenu.addAction(self.expPackMenu)
+			# 		self.expPackMenu = MenuAction(self,MENU_ARCHIVE_ICON,"Export plugin","Export an installed plugin",25,self.exportPackage)
+			# 		self.toolsMenu.addAction(self.expPackMenu)
 
-					entry = MenuAction(self,MENU_DIRECTORY_ICON,"Open directory","Open the plugin directory",25,self.openPlugDir)
-					self.toolsMenu.addAction(entry)
+			# 		entry = MenuAction(self,MENU_DIRECTORY_ICON,"Open directory","Open the plugin directory",25,self.openPlugDir)
+			# 		self.toolsMenu.addAction(entry)
 
-					entry = MenuAction(self,MENU_RELOAD_ICON,"Reload plugins","Load any new plugins",25,self.menuReloadPlugins)
-					self.toolsMenu.addAction(entry)
+			# 		entry = MenuAction(self,MENU_RELOAD_ICON,"Reload plugins","Load any new plugins",25,self.menuReloadPlugins)
+			# 		self.toolsMenu.addAction(entry)
 
 		# Plugin menu
 
-		if not self.block_plugins:
-			if USE_QT5_QMENUBAR_INSTEAD_OF_TOOLBAR:
-				self.pluginMenu = self.menubar.addMenu("Plugins")
-			else:
-				self.pluginMenu.clear()
-				add_toolbar_menu(self.toolbar,"Plugins",self.pluginMenu)
+		# if not self.block_plugins:
+		# 	if USE_QT5_QMENUBAR_INSTEAD_OF_TOOLBAR:
+		# 		self.pluginMenu = self.menubar.addMenu("Plugins")
+		# 	else:
+		# 		self.pluginMenu.clear()
+		# 		add_toolbar_menu(self.toolbar,"Plugins",self.pluginMenu)
 
-			self.rebuildPluginMenu()
+		# 	self.rebuildPluginMenu()
 
 		# Help menu
 
@@ -1031,241 +1031,241 @@ class Erk(QMainWindow):
 
 				zf.close()
 
-	def rebuildPluginMenu(self):
+	# def rebuildPluginMenu(self):
 
-		self.pluginMenu.clear()
+	# 	self.pluginMenu.clear()
 
-		if not self.block_install:
+	# 	if not self.block_install:
 
-			entry = MenuAction(self,MENU_INSTALL_ICON,"Install","Install a plugin",25,self.menuInstall)
-			self.pluginMenu.addAction(entry)
+	# 		entry = MenuAction(self,MENU_INSTALL_ICON,"Install","Install a plugin",25,self.menuInstall)
+	# 		self.pluginMenu.addAction(entry)
 
-			if not config.PLUGINS_ENABLED:
-				entry.setEnabled(False)
+	# 		if not config.PLUGINS_ENABLED:
+	# 			entry.setEnabled(False)
 
-		if not hasattr(self,"plugins"):
-			self.plugins = PluginCollection("plugins")
-			self.display_load_errors()
+	# 	if not hasattr(self,"plugins"):
+	# 		self.plugins = PluginCollection("plugins")
+	# 		self.display_load_errors()
 
-		if len(self.plugins.plugins)==0:
+	# 	if len(self.plugins.plugins)==0:
 
-			self.pluginMenu.addSeparator()
+	# 		self.pluginMenu.addSeparator()
 
-			l1 = QLabel("<br>&nbsp;<b>No plugins installed</b>&nbsp;<br>")
-			l1.setAlignment(Qt.AlignCenter)
-			entry = QWidgetAction(self)
-			entry.setDefaultWidget(l1)
-			self.pluginMenu.addAction(entry)
+	# 		l1 = QLabel("<br>&nbsp;<b>No plugins installed</b>&nbsp;<br>")
+	# 		l1.setAlignment(Qt.AlignCenter)
+	# 		entry = QWidgetAction(self)
+	# 		entry.setDefaultWidget(l1)
+	# 		self.pluginMenu.addAction(entry)
 
-			self.expPackMenu.setVisible(False)
+	# 		self.expPackMenu.setVisible(False)
 			
-		else:
-			s = textSeparator(self,"Installed plugins")
-			self.pluginMenu.addAction(s)
+	# 	else:
+	# 		s = textSeparator(self,"Installed plugins")
+	# 		self.pluginMenu.addAction(s)
 
-		plist = {}
+	# 	plist = {}
 
-		for p in self.plugins.plugins:
+	# 	for p in self.plugins.plugins:
 
-			if p._package in plist:
-				plist[p._package].append(p)
-			else:
-				plist[p._package] = []
-				plist[p._package].append(p)
+	# 		if p._package in plist:
+	# 			plist[p._package].append(p)
+	# 		else:
+	# 			plist[p._package] = []
+	# 			plist[p._package].append(p)
 
-		for pack in plist:
+	# 	for pack in plist:
 
-			m = self.pluginMenu.addMenu(QIcon(PACKAGE_ICON),pack)
+	# 		m = self.pluginMenu.addMenu(QIcon(PACKAGE_ICON),pack)
 
-			for p in plist[pack]: plugdir = p._packdir
-			plugtype = "package"
+	# 		for p in plist[pack]: plugdir = p._packdir
+	# 		plugtype = "package"
 
-			if plugdir==PLUGIN_DIRECTORY:
-				plugdir = p.__file__
-				plugtype = "plugin"
-				m.setIcon(QIcon(PLUGIN_ICON))
+	# 		if plugdir==PLUGIN_DIRECTORY:
+	# 			plugdir = p.__file__
+	# 			plugtype = "plugin"
+	# 			m.setIcon(QIcon(PLUGIN_ICON))
 
-			if not config.PLUGINS_ENABLED:
-				m.setEnabled(False)
+	# 		if not config.PLUGINS_ENABLED:
+	# 			m.setEnabled(False)
 
-			for p in plist[pack]:
+	# 		for p in plist[pack]:
 
-				if os.path.isfile(p._packicon): m.setIcon(QIcon(p._packicon))
+	# 			if os.path.isfile(p._packicon): m.setIcon(QIcon(p._packicon))
 
-				if os.path.isfile(p._icon):
-					icon = p._icon
-				else:
-					icon = PLUGIN_ICON
+	# 			if os.path.isfile(p._icon):
+	# 				icon = p._icon
+	# 			else:
+	# 				icon = PLUGIN_ICON
 
-				args = []
-				if p.version:
-					PLUGIN_VERSION = p.version + " "
-				else:
-					PLUGIN_VERSION = ''
+	# 			args = []
+	# 			if p.version:
+	# 				PLUGIN_VERSION = p.version + " "
+	# 			else:
+	# 				PLUGIN_VERSION = ''
 
-				if p.author and p.author!="Unknown":
-					args.append(p.author)
+	# 			if p.author and p.author!="Unknown":
+	# 				args.append(p.author)
 
-				if p.website:
-					args.append(f"<a href=\"{p.website}\">Website</a>")
+	# 			if p.website:
+	# 				args.append(f"<a href=\"{p.website}\">Website</a>")
 
-				if p.source:
-					args.append(f"<a href=\"{p.source}\">Source Code</a>")
+	# 			if p.source:
+	# 				args.append(f"<a href=\"{p.source}\">Source Code</a>")
 
-				max_length = 40
-				if len(p.description)>max_length:
-					if len(p.description)>=max_length+3:
-						offset = max_length-3
-					elif len(p.description)==max_length+2:
-						offset = max_length-2
-					elif len(p.description)==max_length+1:
-						offset = max_length-1
-					else:
-						offset = max_length
-					display_description = p.description[0:offset]+"..."
-				else:
-					display_description = p.description
+	# 			max_length = 40
+	# 			if len(p.description)>max_length:
+	# 				if len(p.description)>=max_length+3:
+	# 					offset = max_length-3
+	# 				elif len(p.description)==max_length+2:
+	# 					offset = max_length-2
+	# 				elif len(p.description)==max_length+1:
+	# 					offset = max_length-1
+	# 				else:
+	# 					offset = max_length
+	# 				display_description = p.description[0:offset]+"..."
+	# 			else:
+	# 				display_description = p.description
 
 
-				if len(args)==3:
-					entry = Menu5Action(self,icon,p.name+" "+PLUGIN_VERSION,display_description,*args,25)
-				elif len(args)==2:
-					entry = Menu4Action(self,icon,p.name+" "+PLUGIN_VERSION,display_description,*args,25)
-				elif len(args)==1:
-					entry = Menu3Action(self,icon,p.name+" "+PLUGIN_VERSION,display_description,*args,25)
-				else:
-					entry = MenuNoAction(self,icon,p.name+" "+PLUGIN_VERSION,display_description,25)
+	# 			if len(args)==3:
+	# 				entry = Menu5Action(self,icon,p.name+" "+PLUGIN_VERSION,display_description,*args,25)
+	# 			elif len(args)==2:
+	# 				entry = Menu4Action(self,icon,p.name+" "+PLUGIN_VERSION,display_description,*args,25)
+	# 			elif len(args)==1:
+	# 				entry = Menu3Action(self,icon,p.name+" "+PLUGIN_VERSION,display_description,*args,25)
+	# 			else:
+	# 				entry = MenuNoAction(self,icon,p.name+" "+PLUGIN_VERSION,display_description,25)
 
-				m.addAction(entry)
+	# 			m.addAction(entry)
 
-				if config.DEVELOPER_MODE:
+	# 			if config.DEVELOPER_MODE:
 
-					entry = QAction(QIcon(EDITOR_ICON),"Edit "+os.path.basename(p.__file__),self)
-					entry.triggered.connect(lambda state,f=p.__file__: self.editPlugin(f))
-					m.addAction(entry)
+	# 				entry = QAction(QIcon(EDITOR_ICON),"Edit "+os.path.basename(p.__file__),self)
+	# 				entry.triggered.connect(lambda state,f=p.__file__: self.editPlugin(f))
+	# 				m.addAction(entry)
 
-					if hasattr(p,"load"):
+	# 				if hasattr(p,"load"):
 
-						entry = QAction(QIcon(LAMBDA_ICON),"Execute load()",self)
-						entry.triggered.connect(lambda state,f=p.name: self.plugins.forceload(f))
-						m.addAction(entry)
+	# 					entry = QAction(QIcon(LAMBDA_ICON),"Execute load()",self)
+	# 					entry.triggered.connect(lambda state,f=p.name: self.plugins.forceload(f))
+	# 					m.addAction(entry)
 
-					if hasattr(p,"unload"):
+	# 				if hasattr(p,"unload"):
 
-						entry = QAction(QIcon(LAMBDA_ICON),"Execute unload()",self)
-						entry.triggered.connect(lambda state,f=p.name: self.plugins.forceunload(f))
-						m.addAction(entry)
+	# 					entry = QAction(QIcon(LAMBDA_ICON),"Execute unload()",self)
+	# 					entry.triggered.connect(lambda state,f=p.name: self.plugins.forceunload(f))
+	# 					m.addAction(entry)
 
-				if p.name in config.DISABLED_PLUGINS:
-					enabled = False
-					entry = QAction(QIcon(UNCHECKED_ICON),"Enabled",self)
-				else:
-					enabled = True
-					entry = QAction(QIcon(CHECKED_ICON),"Enabled",self)
+	# 			if p.name in config.DISABLED_PLUGINS:
+	# 				enabled = False
+	# 				entry = QAction(QIcon(UNCHECKED_ICON),"Enabled",self)
+	# 			else:
+	# 				enabled = True
+	# 				entry = QAction(QIcon(CHECKED_ICON),"Enabled",self)
 
-				entry.triggered.connect(lambda state,n=p.name: self.toggle_plugin(n))
-				m.addAction(entry)
+	# 			entry.triggered.connect(lambda state,n=p.name: self.toggle_plugin(n))
+	# 			m.addAction(entry)
 
-				m.addSeparator()
-				#insertNoTextSeparator(self,m)
+	# 			m.addSeparator()
+	# 			#insertNoTextSeparator(self,m)
 
-			entry = QAction(QIcon(UNINSTALL_ICON),"Uninstall \""+pack+"\"",self)
-			entry.triggered.connect(lambda state,f=plugdir,p=pack: self.uninstall_plugin(f,p))
-			m.addAction(entry)
+	# 		entry = QAction(QIcon(UNINSTALL_ICON),"Uninstall \""+pack+"\"",self)
+	# 		entry.triggered.connect(lambda state,f=plugdir,p=pack: self.uninstall_plugin(f,p))
+	# 		m.addAction(entry)
 
-	def uninstall_plugin(self,directory,upack):
+	# def uninstall_plugin(self,directory,upack):
 
-		msgBox = QMessageBox()
-		msgBox.setIconPixmap(QPixmap(ERK_ICON))
-		msgBox.setWindowIcon(QIcon(ERK_ICON))
-		msgBox.setText("Are you sure you want to uninstall \""+upack+"\"?")
-		msgBox.setWindowTitle("Uninstall "+upack)
-		msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+	# 	msgBox = QMessageBox()
+	# 	msgBox.setIconPixmap(QPixmap(ERK_ICON))
+	# 	msgBox.setWindowIcon(QIcon(ERK_ICON))
+	# 	msgBox.setText("Are you sure you want to uninstall \""+upack+"\"?")
+	# 	msgBox.setWindowTitle("Uninstall "+upack)
+	# 	msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
 
-		rval = msgBox.exec()
+	# 	rval = msgBox.exec()
 
-		if rval == QMessageBox.Cancel:
-			return
+	# 	if rval == QMessageBox.Cancel:
+	# 		return
 
-		# Find the pack we're uninstalling
-		plist = {}
+	# 	# Find the pack we're uninstalling
+	# 	plist = {}
 
-		for p in self.plugins.plugins:
+	# 	for p in self.plugins.plugins:
 
-			if p._package in plist:
-				plist[p._package].append(p)
-			else:
-				plist[p._package] = []
-				plist[p._package].append(p)
+	# 		if p._package in plist:
+	# 			plist[p._package].append(p)
+	# 		else:
+	# 			plist[p._package] = []
+	# 			plist[p._package].append(p)
 
-		for pack in plist:
-			if pack==upack:
-				# Found it!
-				for p in plist[pack]:
-					# Execute unload()
-					self.plugins.uninstall_forceunload(p.name)
+	# 	for pack in plist:
+	# 		if pack==upack:
+	# 			# Found it!
+	# 			for p in plist[pack]:
+	# 				# Execute unload()
+	# 				self.plugins.uninstall_forceunload(p.name)
 
-		if os.path.isdir(directory):
-			shutil.rmtree(directory)
-		elif os.path.isfile(directory):
-			os.remove(directory)
+	# 	if os.path.isdir(directory):
+	# 		shutil.rmtree(directory)
+	# 	elif os.path.isfile(directory):
+	# 		os.remove(directory)
 
-		self.plugins.reload_plugins(True)
-		self.rebuildPluginMenu()
+	# 	self.plugins.reload_plugins(True)
+	# 	self.rebuildPluginMenu()
 
-	def menuInstall(self):
-		# PLUGIN_DIRECTORY
-		options = QFileDialog.Options()
-		options |= QFileDialog.DontUseNativeDialog
-		fileName, _ = QFileDialog.getOpenFileName(self,"Select Plugin Package", INSTALL_DIRECTORY,f"{APPLICATION_NAME} Package File (*.{PACKAGE_FILE_EXTENSION});;Python File (*.py)", options=options)
-		if fileName:
+	# def menuInstall(self):
+	# 	# PLUGIN_DIRECTORY
+	# 	options = QFileDialog.Options()
+	# 	options |= QFileDialog.DontUseNativeDialog
+	# 	fileName, _ = QFileDialog.getOpenFileName(self,"Select Plugin Package", INSTALL_DIRECTORY,f"{APPLICATION_NAME} Package File (*.{PACKAGE_FILE_EXTENSION});;Python File (*.py)", options=options)
+	# 	if fileName:
 
-			x = InstallDialog(fileName)
-			if x:
-				file_name, file_extension = os.path.splitext(fileName)
-				if file_extension.lower()==f".{PACKAGE_FILE_EXTENSION}":
-					with ZipFile(fileName,'r') as zipObj:
-						zipObj.extractall(PLUGIN_DIRECTORY)
-				else:
-					bname = os.path.basename(fileName)
-					shutil.copy(fileName, os.path.join(PLUGIN_DIRECTORY, bname))
+	# 		x = InstallDialog(fileName)
+	# 		if x:
+	# 			file_name, file_extension = os.path.splitext(fileName)
+	# 			if file_extension.lower()==f".{PACKAGE_FILE_EXTENSION}":
+	# 				with ZipFile(fileName,'r') as zipObj:
+	# 					zipObj.extractall(PLUGIN_DIRECTORY)
+	# 			else:
+	# 				bname = os.path.basename(fileName)
+	# 				shutil.copy(fileName, os.path.join(PLUGIN_DIRECTORY, bname))
 
-				self.plugins.reload_plugins(True)
-				self.display_load_errors()
-				self.rebuildPluginMenu()
+	# 			self.plugins.reload_plugins(True)
+	# 			self.display_load_errors()
+	# 			self.rebuildPluginMenu()
 
-	def menuEditor(self):
-		x = EditorDialog(self,None,None,self.configfile,self.stylefile)
-		w = config.DEFAULT_APP_WIDTH
-		h = config.DEFAULT_APP_HEIGHT
-		x.resize(w,h)
-		x.show()
+	# def menuEditor(self):
+	# 	x = EditorDialog(self,None,None,self.configfile,self.stylefile)
+	# 	w = config.DEFAULT_APP_WIDTH
+	# 	h = config.DEFAULT_APP_HEIGHT
+	# 	x.resize(w,h)
+	# 	x.show()
 
-	def editPlugin(self,filename):
-		x = EditorDialog(self,filename,None,self.configfile,self.stylefile)
-		w = config.DEFAULT_APP_WIDTH
-		h = config.DEFAULT_APP_HEIGHT
-		x.resize(w,h)
-		x.show()
+	# def editPlugin(self,filename):
+	# 	x = EditorDialog(self,filename,None,self.configfile,self.stylefile)
+	# 	w = config.DEFAULT_APP_WIDTH
+	# 	h = config.DEFAULT_APP_HEIGHT
+	# 	x.resize(w,h)
+	# 	x.show()
 
-	def toggle_plugin(self,name):
-		if name in config.DISABLED_PLUGINS:
-			config.DISABLED_PLUGINS.remove(name)
-		else:
-			config.DISABLED_PLUGINS.append(name)
-		config.save_settings(self.configfile)
-		self.plugins.load()
-		self.rebuildPluginMenu()
+	# def toggle_plugin(self,name):
+	# 	if name in config.DISABLED_PLUGINS:
+	# 		config.DISABLED_PLUGINS.remove(name)
+	# 	else:
+	# 		config.DISABLED_PLUGINS.append(name)
+	# 	config.save_settings(self.configfile)
+	# 	self.plugins.load()
+	# 	self.rebuildPluginMenu()
 
-	def menuReloadPlugins(self):
-		self.plugins.reset_errors()
-		self.plugins.reload_plugins(True)
-		self.display_load_errors()
-		self.rebuildPluginMenu()
+	# def menuReloadPlugins(self):
+	# 	self.plugins.reset_errors()
+	# 	self.plugins.reload_plugins(True)
+	# 	self.display_load_errors()
+	# 	self.rebuildPluginMenu()
 
-		x = Blank()
-		x.show()
-		x.close()
+	# 	x = Blank()
+	# 	x.show()
+	# 	x.close()
 
 	def toggleSetting(self,setting):
 

@@ -389,8 +389,8 @@ def handle_input(window,client,text):
 
 def handle_channel_input(window,client,text):
 
-	if not client.gui.block_plugins:
-		if client.gui.plugins.input(client,window.name,text): return True
+	# if not client.gui.block_plugins:
+	# 	if client.gui.plugins.input(client,window.name,text): return True
 
 	tokens = text.split()
 
@@ -434,12 +434,12 @@ def handle_channel_input(window,client,text):
 								t = t.replace("%_DESCRIPTION_%",m.help)
 							hdisplay.append(t)
 
-			if not client.gui.block_plugins:
-				for e in PLUGIN_HELP_ENTRIES:
-					t = HELP_ENTRY
-					t = t.replace("%_USAGE_%",e[0])
-					t = t.replace("%_DESCRIPTION_%",e[1])
-					hdisplay.append(t)
+			# if not client.gui.block_plugins:
+			# 	for e in PLUGIN_HELP_ENTRIES:
+			# 		t = HELP_ENTRY
+			# 		t = t.replace("%_USAGE_%",e[0])
+			# 		t = t.replace("%_DESCRIPTION_%",e[1])
+			# 		hdisplay.append(t)
 
 			CHAT_HELP_DISPLAY = CHAT_HELP_HTML_TEMPLATE.replace("%_LIST_%","\n".join(hdisplay))
 			msg = Message(PLUGIN_MESSAGE,'',CHAT_HELP_DISPLAY)
@@ -510,8 +510,8 @@ def handle_channel_input(window,client,text):
 
 def handle_private_input(window,client,text):
 
-	if not client.gui.block_plugins:
-		if client.gui.plugins.input(client,window.name,text): return True
+	# if not client.gui.block_plugins:
+	# 	if client.gui.plugins.input(client,window.name,text): return True
 
 	tokens = text.split()
 
@@ -541,12 +541,12 @@ def handle_private_input(window,client,text):
 								t = t.replace("%_DESCRIPTION_%",m.help)
 							hdisplay.append(t)
 
-			if not client.gui.block_plugins:
-				for e in PLUGIN_HELP_ENTRIES:
-					t = HELP_ENTRY
-					t = t.replace("%_USAGE_%",e[0])
-					t = t.replace("%_DESCRIPTION_%",e[1])
-					hdisplay.append(t)
+			# if not client.gui.block_plugins:
+			# 	for e in PLUGIN_HELP_ENTRIES:
+			# 		t = HELP_ENTRY
+			# 		t = t.replace("%_USAGE_%",e[0])
+			# 		t = t.replace("%_DESCRIPTION_%",e[1])
+			# 		hdisplay.append(t)
 
 			CHAT_HELP_DISPLAY = CHAT_HELP_HTML_TEMPLATE.replace("%_LIST_%","\n".join(hdisplay))
 			msg = Message(PLUGIN_MESSAGE,'',CHAT_HELP_DISPLAY)
@@ -576,8 +576,8 @@ def handle_private_input(window,client,text):
 
 def handle_console_input(window,client,text):
 
-	if not client.gui.block_plugins:
-		if client.gui.plugins.input(client,window.name,text): return
+	# if not client.gui.block_plugins:
+	# 	if client.gui.plugins.input(client,window.name,text): return
 	
 	if handle_common_input(window,client,text): return
 
@@ -752,12 +752,12 @@ def handle_common_input(window,client,text):
 								t = t.replace("%_DESCRIPTION_%",m.help)
 							hdisplay.append(t)
 
-			if not client.gui.block_plugins:
-				for e in PLUGIN_HELP_ENTRIES:
-					t = HELP_ENTRY
-					t = t.replace("%_USAGE_%",e[0])
-					t = t.replace("%_DESCRIPTION_%",e[1])
-					hdisplay.append(t)
+			# if not client.gui.block_plugins:
+			# 	for e in PLUGIN_HELP_ENTRIES:
+			# 		t = HELP_ENTRY
+			# 		t = t.replace("%_USAGE_%",e[0])
+			# 		t = t.replace("%_DESCRIPTION_%",e[1])
+			# 		hdisplay.append(t)
 
 			CHAT_HELP_DISPLAY = CHAT_HELP_HTML_TEMPLATE.replace("%_LIST_%","\n".join(hdisplay))
 			msg = Message(PLUGIN_MESSAGE,'',CHAT_HELP_DISPLAY)
