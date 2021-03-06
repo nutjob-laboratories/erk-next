@@ -45,7 +45,7 @@ from .resources import *
 from .widgets import *
 from .files import *
 from .common import *
-from .plugins import PluginCollection,PLUGIN_DIRECTORY
+#from .plugins import PluginCollection,PLUGIN_DIRECTORY
 from . import config
 from . import events
 from . import textformat

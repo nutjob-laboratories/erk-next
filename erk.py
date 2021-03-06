@@ -57,7 +57,7 @@ from erk.objects import *
 from erk.strings import *
 import erk.config
 from erk.common import *
-from erk.plugins import PLUGIN_DIRECTORY
+#from erk.plugins import PLUGIN_DIRECTORY
 
 # Handle commandline arguments
 
