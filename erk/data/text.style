@@ -1,0 +1,93 @@
+/*
+	 ___      _   
+	|__ \ _ _| |__
+	/ _  | '_| / /
+	\___/|_| |_\_\
+
+	https://github.com/nutjob-laboratories/erk
+
+	This file uses a sub-set of CSS used by Qt called "QSS"
+	https://doc.qt.io/qt-5/stylesheet-syntax.html
+
+	This file is generated and maintained by the Erk IRC Client
+	Please don't edit manually!
+	
+*/
+
+timestamp {
+	font-weight: bold;
+}
+
+username {
+	font-weight: bold;
+	color: #0000FF;
+}
+
+message {
+}
+
+system {
+	font-style: italic;
+	font-weight: bold;
+	color: #FF8C00;
+}
+
+self {
+	font-weight: bold;
+	color: #FF0000;
+}
+
+action {
+	font-style: italic;
+	font-weight: bold;
+	color: #006400;
+}
+
+notice {
+	font-weight: bold;
+	color: #800080;
+}
+
+hyperlink {
+	text-decoration: underline;
+	font-weight: bold;
+	color: #0000FF;
+}
+
+all {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+error {
+	font-style: italic;
+	font-weight: bold;
+	color: #FF0000;
+}
+
+server {
+	font-weight: bold;
+	color: #0073ad;
+}
+
+plugin {
+	font-style: italic;
+	font-weight: bold;
+	color: #FF8C00;
+}
+
+editor {
+	color: #000000;
+	background-color: #ffffff;
+	keyword: blue;
+	operator: red;
+	brace: darkGray;
+	defined: black;
+	string: magenta;
+	multiline-strings: darkMagenta;
+	comment: darkGreen;
+	self: black;
+	numbers: brown;
+	erk: #0212b6;
+	current: #fff397;
+}
