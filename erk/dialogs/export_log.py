@@ -40,7 +40,11 @@ from PyQt5 import QtCore
 from ..resources import *
 
 INSTALL_DIRECTORY = sys.path[0]
-LOG_DIRECTORY = os.path.join(INSTALL_DIRECTORY, "logs")
+
+BASE_DIRECTORY = os.path.join(INSTALL_DIRECTORY, "config")
+if not os.path.isdir(BASE_DIRECTORY): os.mkdir(BASE_DIRECTORY)
+
+LOG_DIRECTORY = os.path.join(BASE_DIRECTORY, "logs")
 
 class Dialog(QDialog):
 

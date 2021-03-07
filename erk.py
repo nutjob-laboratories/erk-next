@@ -50,7 +50,7 @@ qt5reactor.install()
 
 from twisted.internet import reactor
 
-from erk.dialogs import EditorDialog,ComboDialogBanner,ScriptEditor
+from erk.dialogs import ComboDialogBanner,ScriptEditor
 from erk.main import Erk
 from erk.files import *
 from erk.objects import *
