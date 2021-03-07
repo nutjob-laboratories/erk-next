@@ -41,9 +41,7 @@ from PyQt5 import QtCore
 from ..resources import *
 
 INSTALL_DIRECTORY = sys.path[0]
-
 BASE_DIRECTORY = os.path.join(str(Path.home()), ".erk")
-
 LOG_DIRECTORY = os.path.join(BASE_DIRECTORY, "logs")
 
 class Dialog(QDialog):
