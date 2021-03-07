@@ -45,7 +45,7 @@
   * Almost every part of the interface can be customized
   * Most behaviors can be customized
   * Over 50 display and configuration options settable in the GUI
-  * Scripting, plugins, menus, and more can be disabled from the command-line
+  * Scripting, menus, and more can be disabled from the command-line
 * Text colors are customizeable
   * Any text, from nicknames to messages to hyperlinks, can use custom colors
   * Text rendering setting are stored in "style files", and can be shared
@@ -116,7 +116,7 @@ usage: python erk.py [-h] [--ssl] [--reconnect] [-p PASSWORD] [-c CHANNEL[:KEY]]
                      [-U FILE] [-Y FILE] [-L DIRECTORY] [-S DIRECTORY] [-T DIRECTORY]
                      [-M FILE] [-X ZIP] [-A ZIP] [-I ZIP] [--scripter] [--scripter-edit FILE]
                      [--noask] [--nosettings] [--nomenus] [--noconnect] [--noscripts]
-                     [--nodisplay] [--nostyles] [--noedit] [--noinstall] [--qt5menu]
+                     [--nodisplay] [--nostyles] [--noedit] [--qt5menu]
                      [SERVER] [PORT]
 optional arguments:
   -h, --help            show this help message and exit
@@ -178,8 +178,8 @@ Disable functionality:
   --nodisplay           Disable connection display
   --nostyles            Disables style loading and editing
   --noedit              Disables the script editor
-  --noinstall           Disables plugin installation
   --qt5menu             Disable menu toolbar, and use normal menus
+
 ```
 # Frequently asked questions
 
@@ -233,8 +233,8 @@ The other reason why I wrote **Ərk** is because I got tired of not understandin
 Yes! **Ərk** stores configuration files in a user's "home" directory, on both Linux and Windows. However, if multiple users want to use **Ərk** on the same account, there are command-line options to store configuration files in specific, designated locations.
 
 * `-C`,`--config` : This tells **Ərk** to use a user-specified file for most configuration options.
-* `-U`,`--user` : This tells **Ərk** to use a user-specified user settings file. Stored in this file are nickname and username settings, server connection history, the disabled plugins list, and other user specific data.
-* `-Y`,`--style` : This tells **Ərk** to use a user-specified text style file. This sets what colors and formatting is used to display text in the client.
+* `-U`,`--user` : This tells **Ərk** to use a user-specified user settings file. Stored in this file are nickname and username settings, server connection history, and other user specific data.
+* `-Y`,`--style` : This tells **Ərk** to use a user-specified text style file. This sets what colors and formatting are used to display text in the client.
 * `-L`,`--logs` : This tells **Ərk** to use a user-specified directory for log loading and storage.
 * `-S`,`--scripts` : This tells **Ərk** to use a user-specified directory for script loading and storage.
 * `-T`,`--styles` : This tells **Ərk** to use a user-specified directory for text style loading and storage.

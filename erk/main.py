@@ -344,7 +344,6 @@ class Erk(QMainWindow):
 			no_styles=False,
 			block_editor=False,
 			macrofile=MACRO_SAVE_FILE,
-			block_install=False,
 			parent=None
 		):
 		
@@ -368,8 +367,6 @@ class Erk(QMainWindow):
 		self.do_connection_display_width_save = 0
 
 		self.current_client = None
-
-		self.block_install = block_install
 
 		self.block_settings = block_settings
 
@@ -401,11 +398,9 @@ class Erk(QMainWindow):
 
 		self.cmdline_script = False
 		self.cmdline_editor = False
-		self.cmdline_install = False
 
 		if self.block_scripts: self.cmdline_script = True
 		if self.block_editor: self.cmdline_editor = True
-		if self.block_install: self.cmdline_install = True
 
 		self.force_qmenu = force_qmenu
 
