@@ -1,0 +1,1692 @@
+Version 0.860
+	* Removed all plugin-related code and documentation
+	* Config files are now stored in a directory in the user's home directory
+	* Log files are now stored in the same directory as settings files (in a subdirectory)
+	* Default style file is now stored in the styles directory
+	* Removed "Tools" menu
+	* The "Settings" menu is now the "Settings & Tools" menu, and "Tools" entries are located there
+	* Edited references to plugins and the plugin editor out of the command documentation
+
+Version 0.850
+	* Changed the splash logo
+	* Added qt5reactor to the distribution
+	* Added qt5reactor to the credits in the "about" dialog
+	* Reworked the "about" dialog (using tabs now, "about" and "credits")
+	* Using a 200x200px image for the "erk button" image in the about dialog
+	* Added a new "Nutjob Laboratories" image to the about dialog
+	* Log file names now make the server/hostname all lowercase (so that servers with mis-cased network names are treated the same)
+	* Export log dialog now makes the network named all uppercase
+	* Style file names now make the server/hostname all lowercase
+	* Package export dialog now shows the package name rather than just the directory name
+	* Package export dialog now shows the package icon (if it exists)
+	* Changed the package export dialog text to "export plugin" from "export package"
+	* Package export dialog can now show single (not in a package) plugins
+	* Package exporting can now handle single plugin files (that is, files not in a package)
+	* Cleaned up the export log dialog
+	* Menubar on the style editor now matches the menubar on the connection dialog in appearance
+	* Cleaned up the export log dialog some more...with feeling this time :-)
+	* Using the Ctrl+F or Ctrl+R hotkeys in the plugin editor will now pass any highlighted words to find/find & replace dialog
+	* Cleaned up the server settings menu
+	* Bugfix: plugin and template generator didn't always escape quotes properly
+	* Reformatted the plugin/template generator dialog
+	* Added new entries for author, version, and website to the plugin/template generator dialog
+	* Exit messagebox now features the "Erk" icon rather than the generic "warning" icon
+	* The "create package" and "insert template" dialog now has descriptive text added to it, and is customized depending on which function is being used
+	* The "create package" dialog now allows for customizing the package/plugin icons
+	* The "create package" dialog can now set a name for the package that is different from the plugin
+	* The "create package" dialog's icon display has been cleaned up a bit
+	* Added a message box to see if the user is sure they want to uninstall a plugin
+	* Created clear markers for required and optional information in the "create package" and "insert template" dialogs
+	* Added another check for the "bad input method" detector: multiline/docstrings are ignored
+	* Bugfix: plugin engine now checks for the existence of *any* of the plugin methods, not just the main ones
+	* "Insert template/create package" dialog can now support multiple modes
+	* Creating a package with the generator will now name the plugin file after the name of the (initial) class it contains
+	* Bugfix: dis/en-abling plugins did not work. It works now
+	* The list of diabled plugins is no longer in the user config; it is now stored in the settings file
+	* Changed how plugin development tools are displayed in the "Tools" menu (if the client is in development mode)
+	* Changed the spacing on "fancy" menu entries
+	* The "reload plugins" in the editor is now a "fancy" menu entry
+	* Bugfix: the "insert messagebox" code generator in the editor had the wrong parent GUI
+	* Bugfix: clicking on "fancy" menu entries that didn't spawn a dialog or window wouldn't close the menu; now, they spawn a "blank" dialog that is immediately closed, thus closing the window
+	* Single file (.py) plugins can now be installed via the GUI as well as zipped plugin packages
+	* Changed the text of the "export package" entry in the editor to "export plugin"
+	* Exporting plugins now has a suggested output file name
+	* Exported plugins now have a new file extension: ".erkp" (for Erk plugin)
+	* Plugin installer now looks for ".erkp" file extension instead of ".zip"
+	* Documentation for plugins has been updated to match the new GUI changes, and Erk Packages (.erkp) files have been added
+	* Documentation for both plugins and scripting has been updated to include the new major version number
+	* Changed the package file extension to ".perk" because it looks better :-)
+	* Bugfix: "Tools" menu was displaying when, due to commandline flags, it would be empty
+	* Bugfix: toggling development mode could enable the script editor (and scripting) if scripting was blocked from the commandline
+	* Bugfix: editing settings could enable the editor even if the editor was blocked via commandline
+	* Bugfix: editing settings could enable plugins even if plugins were blocked via commandline
+	* Bugfix: editing settings could enable plugin installation even if plugin installation was disabled via commandline
+	* Exporting settings now defaults to "settings.json" as the default filename
+	* Bugfix: loading a config file into the settings dialog with a blank "FONT" entry no longer throws an error
+	* Added a new plugin command: .help(), which adds a command to the /help command
+	* Removed the option to install a plugin from the commandline
+	* Renamed --editor commandline option to --plugger (reflecting the plugin editor name)
+	* Renamed --edit commandline option to --plugger-edit (reflecting the plugin editor name)
+	* Added a new commandline option: --scripter (runs the script editor)
+	* Added a new commandline option: --scripter-edit (opens a file in the script editor)
+	* Changed the commandline option group "Development" to "Tools"
+	* All configuration files, scripts, styles, and logs are now stored in one directory: config/
+
+Version 0.840
+	* Default alternate nickname now includes a random number
+	* Re-named the style editor to "Stylər"
+	* Re-named the script editor to "Scriptər"
+	* Rearranged the "Settings" menu, and gave the style/script editor fancy menu entries
+	* Edited the documentation to use the new names, and changed some formatting
+	* New command: /cat (sends the contents of a file as a series of text messages)
+	* Added a new built-in plugin method: .autocomplete() (adds entries to the autocompleter)
+	* Added .autocomplete() to the editor
+	* Added .autocomplete() to the documentation
+	* Added .autocomplete() to the examples in the plugin documentation
+	* Changed the menu entry for the "settings" dialog from a regular one to a "fancy" entry
+	* Changed the menu icon for the "settings" dialog from a cluster of gears to a wrench
+	* Changed the menu icon for the script editor
+	* Bugfix: fixed an error in the plugin documentation
+	* Added information about program directories to the command documentation
+	* Re-arranged how commandline options are displayed to the user with the -h flag
+	* Made the "help" menu a bit more "fancy"
+	* Added a link to the GPL 3 to the "help" menu
+	* Moved all of the entries in the "Logs" menu to the "Settings" menu and the "Preferences" dialog
+	* Removed the "logs" menu
+	* Changed the name of the plugin editor to "Pluggər"
+	* Created a new menu: "Tools". Moved most of the built-in tools to this menu
+	* Moved the plugin editor and related tools to the "Tools" menu ("development mode" is still required to view them)
+	* Cleaned up the buttons on the "Logs" page in the "settings" dialog
+	* Cleaned up the buttons on the "miscellaneous" page
+	* Changed settings in the "settings" dialog are now marked with an asterix
+	* All pages in the "settings" dialog have now been "cleaned up" (prettier, smaller buttons for editing stuff)
+	* Changed the editor and script editor icons to be more generic
+	* Changed the "format" (style) icon
+	* Moved the "Styler" menu entry in the "Tools" menu to below the "Scripter" entry
+	* Restored normal QT menu separators to the editor
+	* Changed the default package icon
+	* Changed the "export" icon
+	* Unified the "export package" icon (so Plugger and the main app use the same icon)
+	* Bugfix: exporting plugins, on linux, creating a mangled, non-functional archive; it works now
+	* Bugfix: the export plugin process now makes sure the output has a proper file extension
+	* Bugfix: the export log process now makes sure the output has the proper file extension
+	* Bugfix: plugin editor toolbar button icon for "insert template" now matches the menu icon
+	* Bugfix: creating a plugin from the --new commandline flag didn't include all event methods
+	* New event method: .mode(), for when the client receives a mode notification
+	* Added two new commandline options: --export-settings and --import-settings
+	* Changed the icon for the plugin editor (it's now a plug, which matches the name, heh)
+	* Added a new commandline option: --export-all (exports settings and logs to a zip file)
+	* Removed the "style editor" button from the "settings" dialog, and streamlined the font selection option
+	* Added a commandline flag to block the "install plugin" menu option
+	* Added an option to block the "install plugin" menu option to the config file
+	* Added the "block menu install" option to the "settings" dialog
+	* Changed the "export" icon to the traditional "floppy disk" icon
+	* Moved the "export logs" entry from the "Tools" menu to the "Settings" menu
+	* Modified the HTML generated for "fancy" menu entries to remove cell spacing in the tables for the "master" table
+	* Changed the appearance of the "title" of the "server settings" context menu to look a bit prettier
+	* Replaced the custom separators in the "server" menu with normal Qt5 separators
+	* Cleaned up the userlist context menu
+	* Added an "import" button to the "settings" dialog, for importing settings from a file
+	* Added a check for imported settings files, so non-config files won't be imported
+	* Changed the "save" button in the "settings" dialog to "apply" (which is more accurate)
+	* Added a "save" button to the settings dialog, for exporting settings to a file
+	* Bugfix: several commands were not in the "protected names" list
+	* Changed the user defaults to true: Reconnect on disconnection, save connection history
+	* Completely refactored the "connect" dialog; it's not as spaghetti as before, and cleaner
+	* Changed the default in the user config to execute connection script (it was previously turned off)
+	* Bugfix: clicking "connect" from the connection dialog will now display an error if there is no server entered, or if the port is not a number
+	* Added a "server" designation to the "script" tab in the connection dialog
+	* Added a link to the command documentation to the connect dialog
+	* Changed the "title" of the connection dialog to the application name and version
+	* Changed how "scripts" on the connection dialog work (turning off script execution now hides the script tab, and vice versa)
+	* Moved the "execute script" option from the options menu to a checkbox on the main window in the connection dialog
+	* Removed menu separator underneath the "Disconnect" menu option in the main menu
+	* The "Erk" banner on the connection dialog is now only seen when initially launched (it's removed once the program is running)
+	* Added an option to delete connection history to the connection dialog
+	* Added an option to delete the last connection to the connection dialog
+	* Added an option to restore the default user settings to the connection dialog
+	* Saving an empty connection script from the connection dialog will delete the connection script instead of saving a "blank" file
+	* Added a "save user settings" option to the connection dialog
+	* The background of all settings menubars in the connection dialog are now transparent
+	* Added an option to reload user settings to the connection dialog
+	* SSL/TLS-connection servers now have their own icon (for both visited and unvisited) in the server selection list
+	* Changed the "unvisited" icon from a hollow star to a filled star
+	* Added some SSL/TLS enabled servers to the built-in server list
+	* Bugfix: script editor now uses the command symbol ("/") set in the config file for generated code
+	* Added some script-code-generator stuff to the script editor in the connection dialog
+	* Added a "insert local alias" option to the code generator in the connection dialog
+
+Version 0.831
+	* Macros have been removed from the client
+	* Bugfix: new nickname dialog would error out on saving the new nick to the userfile
+	* Added a new /macro command
+	* Reworked the /help command to generate the necessary display text on the fly, allowing macros to be to /help added after creation
+	* Macros are now added to the autocomplete list
+	* Added an option to autocomplete macros to the config file
+	* Added "autocomplete macros" option to the "settings" dialog
+	* Macro autocomplete is disabled if scripts are disabled
+	* Macros are disabled if scripts are disabled
+	* Macros will not appear in help if scripts are disabled
+	* Added macro information to the documentation
+	* Bugfix: the /preferences command was missing from the documentation
+	* Changed the icon for the "Extensions" tab in the "settings" dialog
+	* Added example macros to the documentation
+	* Added an option to save macros (so they persist across boots)
+	* Added "save macro" option to the "settings" dialog
+	* Added a new commandline flag: --macros, to set the macro save file name
+	* Added an option for macros to have a custom text line for the /help command
+	* Added a new command: /macrohelp, to set macro custom help text
+	* Added a new command: /unmacro, which deletes a macro
+	* Added more detail to the command documentation, explaining some "quirks" with the script engine
+	* Added /alias, /_alias, and /part shortcuts to the editor
+	* Added a new command: /clear
+	* Added a new command: /msgbox
+	* Added a shortcut insert for /msgbox to the script editor
+	* Cleaned up some of the language in the scripting documentation
+	* Bugfix: "Are you sure?" quit messagebox was missing a window icon
+	* Added a menu containing installed scripts (to make it easy to find/open/edit) to the script editor
+	* Added an explanation to the command documentation about how scripts should always have the ".erk" file extension
+	* Added an option to the script editor to save on file close
+	* Bugfix: oddly spelled commands (and other words, like "Erk" and "Ərk") are no longer flagged as misspelled
+	* Bugfix: opening up a file with the /edit command no longer flags it as "changed" when opene w/o editing
+	* Added an option to add multiline comments to the editor
+	* Added a link to the script editor to the "Settings" menu
+	* Bugfix: /mode was omitted from the scripting/command documentation; it has been added
+	* Added a new command: /macrousage, which sets the usage text for a macro
+	* Aliases are now interpolated into input text *before* looking for macros, so macros can use aliases
+	* Macro names can no longer be used to "overload" an existing command name
+	* Bugfix: the script syntax highlighter now uses the "command trigger symbol" (which is / by default) for commands
+	* Made a change to macro interpolation (all arguments are now $+, all arguments less the first one is now $-)
+	* Added a "macro" shortcut to the script editor
+	* Added an option to notify script execution end to the script editor
+	* Bugfix: error notification messageboxes in the script editor now have the script editor dialog as parent
+	* Added additional support for changing the "command symbol" (/) in the config file; help will now display properly, as will syntax highlighting
+	* Changed the "uptime" icon in the connection display to a clock (rather than a stopwatch)
+	* Added a new setting to the config file: a default quit/part message that will be used if one is not provided
+	* Added a custom bitly.com shortened URL for the official repo to the source code (it's used in the default quit/part message)
+	* Added the ability to customize the default quit/part message to the "settings" dialog
+	* Bugfix: all IRC quits now use the default quit/part message
+	* Bugfix: removed colon from default quit message
+	* Added RFC 1459 and RFC 2812 to the distribution
+	* Changed links to RFC 1459 and 2812 in the "Help" menu to local links to the included PDFs
+	* Bugfix: there was an error in the /argcount "wrong args" error text (heh)
+	* Bugfix: alias variables were still being interpolated into input even if scripts were turned off
+	* New command: /unalias (deletes global alias variables)
+	* Made a clarification about available commands for connection scripts in the "connect" dialog
+	* Bugfix: /unalias is now marked as "misspelled" by the spell checker (as it's not available for use outside of scripts)
+	* Added a setting to the configuration file to turn macros on and off
+	* Added the enable/disable macros settings to the "settings" dialog
+	* Bugfix: added "unalias" to the list of forbidden names for macros
+	* Macros will have autocomplete turned off (if it's enabled) if macros are disabled
+	* Cleaned up the "insert macro" dialog in the script editor
+	* Autocomplete will now not insert a space after macros that require no arguments
+	* Leading and trailing whitespace is now stripped from text input, explicitly
+	* Added a new built-in method for plugins: .channels(), which returns a list of channels the client is in
+	* Added the .channels() method to the documentation
+	* Added channel autocomplete
+	* Added a setting to the config file to toggle channel autocomplete
+	* Added the autocomplete channels option to the "settings" dialog
+	* Re-arranged the plugin documentation to make more sense (alphabetized the method list, etc)
+	* Added directory() and channels() methods to the plugin editor
+	* Added the above methods to the syntax highlighter & context menu code generator
+	* Bugfix: removed a menu separator that wasn't supposed to be there from the editor context menu
+	* Added a check to see if macro names contain the command trigger symbol or the interpolation symbol, and stop creation if it finds one
+	* Removed the "/clear" command, as it didn't work very well :-)
+	* Added a new plugin method: .users() (lists users in a channel)
+	* Added the .users() method to the editor and code generator
+	* Bugfix: editor's code generator dialogs did not have the editor as the parent window
+	* Added a new plugin method: .send() (sends raw messages to the server)
+	* Added the .send() method to the editor and code generator
+	* Bugfix: /script command will now correctly autocomplete
+	* Added a new plugin method: .script(), which works just like the /script command
+	* Added .script() to the editor, code generator, and to the plugin documentation
+	* In the script editor, the Ctrl+S hotkey will either work for save as (if the script isn't saved/doesn't have a file name) or save (if loaded/has a filename)
+	* Plugin editor's save/save as behavior works as ^^ above
+	* Bugfix: creating a new package in the editor didn't apply the ^^ above shortcut swaps
+	* Added two new commands: /dictionary and /undictionary (for adding/removing words to/from the spellcheck dictionary)
+	* Added new commands to the syntax highlighter
+	* Updated the new command documentation with /dictionary and /undictionary details
+	* Re-formatted the Plugin and Scripting guides to look alike
+	* Added a new command: /write (works like /print but saves the message to the log)
+
+Version 0.830
+	* Menu text separaters now darken for light GUI backgrounds, and vice versa.
+	* Menu separators now darken and lighten as above
+	* Chat separators now darken or lighten depending on the text display's background color
+	* Minor bugfix: luminosity of text background is now determined only the first time text is rendered, not every time
+	* The "Ok" button on the connection dialog is now labeled "Connect"
+	* Editor now uses a white background and black text by default, regardless of host OS theme
+	* Main logo display now darkens or lightens depending on the host OS color theme
+	* Added an option to ask the user whether to quit or not
+	* Added a setting to the config file for the above
+	* Added "ask on quit" setting to the preferences dialog
+	* Cleaned up the preferences dialog
+	* Bugfix: IRC color options in input context menu would not appear if spellcheck is turned off
+	* Support for setting foreground/background colors from the input context menu
+	* Bugfix: fixed an IRC color rendering bug
+	* Bugfix: users can now select input text (for coloring) without the client autoselecting only the word the cursor is over
+	* Bugfix: no spelling correction is attempted if the user has selected text in the input box
+	* Menubar is now moveable, and can be docked at either the top or bottom of the app
+	* Added a setting to turn "moveable menubar" on and off
+	* Added two new plugin events: "received" and "sent" (triggered when receiving server data or sending server data)
+	* Updated the documentation with the new events
+	* Added an option to stylize the syntax highlighting in the editor
+	* Added new entries to 'text.css' with the new editor color settings
+	* Added new menu separators to the editor
+	* Changed the editor's name to Əditor
+	* Reworked the "plugin" menu; now, only the "install" and installed plugins are displayed if not in development mode
+	* Updated the plugin documentation to reflect new editor/client changes
+	* Syntax highlight coloring can now be edited in the editor
+	* Reworked the editor's "settings" menu
+	* Bugfix: fixed some coloring errors in the highlight colors dialog
+	* Added the ability to edit the background color of the current line in the color dialog
+	* Added help text to the color dialog
+	* Rewrote the text format setting dialog to be faster, less spaghetti-like, and make more sense
+	* Added some new features to the format setting dialog
+	* Bugfix: added a MOTD style type (which has been in the style file for a long time, unused)
+	* Bugfix: MOTD now used the "motd" style
+	* Cleaned up the new text format dialog, and fixed a bug where the "username" setting used the "system" style
+	* Added tabs to the text format dialog, and cleaned up some stuff
+	* WHOIS messages now use the "system" style
+	* Added a new style for plugin-generated messages named "plugin"
+	* Added the new style to the text formatting dialog
+	* Incomplete style files will now be patched with default style settings
+	* Changed the header attached to every generated style file with a small ASCII logo and the URL for the client repository
+	* Cleaned up the "connect" dialog to make it look a little better
+	* The "motd" style is now named "server", and is used for WHOIS messages as well as MOTD messages
+	* Changed the default color for the "server" style to a light(er) blue
+	* Updated the bundled "pyspellchecker" library from 0.4.0 to 0.5.5
+	* Fixed a bug where the "disconnect" menu entry would be disabled of only connected to one server
+	* Bugfix: user settings files weren't being patched correctly
+	* New feature: server scripts. Scripts can be written for each server that can be automatically executed on connection to a server
+	* Connection dialog was cleaned up and re-worked
+	* Connection dialog's "user" tab and "server" tabs are now combined into one tab
+	* Added a new tab to the connection dialog: "Options", which combines the old "Channels" tab and the new scripting feature
+	* Moved the "autojoin" stuff to the "server" tab in the connection dialog, gave an entire tab to the scripting feature
+	* Renamed the tabs "Connect", "Servers", and "Script" in the connection dialog
+	* Server scripts now run on their own thread
+	* Added a new scripting command for server script: "/wait" (or "/sleep")
+	* Added new editing buttons to the scripting tab, allowing for file management and shortcuts for various commands
+	* Added some help text to the connection dialog
+	* The "/script" command now runs scripts in a separate thread
+	* The "/wait" ("/sleep") command now works with the "/script" command
+	* Added comments (between /* and */) to all scripts
+	* Added some basic help to the script tab on the connect dialog
+	* Added a new button to add comments to the script tab
+	* Erk will look for called scripts first in the script directory, then the settings directory, then in the installation directory
+	* When executing a script with "/script", if /wait is called with a non-number, and error is displayed to the user
+	* Added a new script command: "/print" (or "/echo"): displays a message to the current window
+	* Added /print command to the connection dialog script tools
+	* Added a new user setting: "save_script", which saves the script from the connect dialog
+	* Connection dialog can now toggle the "save_script" setting, and save scripts without hitting the "save" button
+	* Changed the name of of the user setting "script" to "auto_script" to better reflect the setting use
+	* Changed the location of the two checkboxes on the "script" tab to be together, horizontally, on the bottom
+	* Added commandline flag "-T","--noscripts" to disable scripts. Scripts can't be executed, and the script tab will not appear in the connection dialog
+	* Added a setting to disable scripting to the config file
+	* Added the new "disable scripting" setting to the "preferences" dialog
+	* Fixed a bug in the preferences dialog (features disabled on the commandline can't be changed in the dialog)
+	* New commandline flag to set a custom directory for all scripts
+	* Changed the default port for the /ssl command to 6697
+	* Added a banner to the connection dialog, and cleaned up the widget layout
+	* Bugfix: the /wait command can't be called from the chat input widget, only from scripts
+	* Added documentation for the Erk client commands (for input and scripting)
+	* Added a link to the PDF command documentation to the "Help" menu
+	* Added a new entry to the main menu: "Run script" (loads and runs a script on the current server connection)
+	* Made the small checkboxes on the connection dialog slightly bigger
+	* Bugfix: blank script will now save if the user uses the "clear" button in the connection dialog (and the save script option is selected)
+	* Moved the "run script" menu entry to a button on every consol window, on the right side of the input widget
+	* Removed the "run script" menu option
+	* Disabling scripting on the commandline or via the "preferences" dialog disables the "run script" button on console windows
+	* "Run script" button on console windows is now invisible if scripting is disabled
+	* Bugfix: "You are now know as <new nick>" no longer appears twice if you change nicks on a console window
+	* Added "Join Channel" and "Change Nick" buttons to the console window, right next to the "Run Script" button
+	* Added a "Disconnect" button to the console window
+	* Removed "Join Channel" and "Change Nick" buttons from console windows, as there are multiple other ways to do both of these
+	* Bugfix: connection display no longer displays the "selected" box that flickers in and out of existence whenever a server or channel is clicked
+	* Nickname display in channels can now be double-clicked to bring up the "change nickname" dialog
+	* Added an option to the "settings" dialog to toggle "double click nickname" on and off
+	* Added a new setting to hide/display the 'Run Script' and 'Disconnect' buttons on console windows
+	* Added the new hide/display buttons setting to the 'settings' dialog
+	* Re-named the 'Plugins & Macros' settings page to 'Extensions' in the 'settings' dialog
+	* Moved 'enable scripts' to the new 'Extensions' page
+	* Updated the plugin documentation to show the new location of the 'Development mode' option
+	* Disabling plugins from the commandline now disables the 'show plugin errors' and 'development mode' settings in the settings dialog
+	* Added a commandline option to hide the connection display
+	* Removed the "(disabled)" tag from settings in the settings dialog for stuff that's been disabled from the commandline
+	* Cleaned up the "Connections" page in the settings dialog
+	* Removed the "always on top" configuration file setting
+	* Removed the "always on top" menu option
+	* Added a commandline flag to launch in "always on top" mode
+	* Changed the "full screen" menu option to say "Enter full screen" to enter, and "Exit full screen" to enter/exit full screen mode
+	* New script command: /alias
+	* Documentation has been updated with the new /alias command
+	* Scripts can now be passed arguments
+	* New script command: /argcount
+	* Documentation has been updated with the new /argcount command
+	* Added the plugin documentation to the 'help' menu
+	* Bugfix: macro type explanation (in the macro dialog) wasn't displaying properly
+	* Cleaned up the macro dialog
+	* Added an "open script" option to the connection dialog
+	* Cleaned up the connection dialog
+	* Changed command documentation filename to "Erk_Scripting_and_Commands", and updated the GUI to match
+	* Added an option to interpolate all arguments to a script with the $0 symbol
+	* Added the interpolation symbol to the config file
+	* Added a new commandline flag to disable the custom menu toolbar and use the normal QMenuBar instead
+	* OSX users are no longer forced to use the QMenuBar (they can now choose to with the above commandline flag)
+	* Added a new config setting which allows global script aliases to be toggled
+	* Added global script alias setting to the "settings" dialog
+	* Grouped macro, plugin, and script settings in the "settings" dialog together
+	* Cleaned up "settings" dialog, and moved various settings to different tabs
+	* Added a new setting to the configuration file: toggle using standard Qt5 menu or using the menu bar
+	* Added QMenuBar toggle to the "settings" dialog
+	* Removed "autocomplete" tab in the "settings" dialog, and merged those settings into the "text input" tab
+	* Cleaned up "application" tab in the "settings" dialog
+	* Cleaned up the "misc" tab in the "settings" dialog
+	* Cleaned up the "messages" tab in the "settings" dialog
+	* Added a new tab to the "settings" dialog, "menu bar", and put the appropriate settings there
+	* Cleaned up the "connection display" tab in the "settings" dialog
+	* The "tab" selector on the "settings" dialog is now transparent
+	* Moved the language selection widget to the top of the "spellcheck" tab in the "settings" dialog
+	* Added a new plugin built-in method: directory() (returns the directory the plugin is in)
+	* Added the directory() method to the documentation
+	* Added the ability to load style files into individual window
+	* Added a new command: "/style" (loads style files into the current window)
+	* Changed the name of the text format editor in "settings" to "Style Editor"
+	* Added "save as..." option to the style editor
+	* Added the "/style" command to the documentation
+	* Added a new commandline flag: "-a,--autoscript" (loads saved server script if the script exists)
+	* Added a new commandline flag: "-s,--script" (loads a custom script and runs it on connection)
+	* If --autoscript and --script are used together, the custom script is concatenated to the server script
+	* Removed single letter commandline flags for flags that disable functionality
+	* Changed the -R,--scripts commandline option to -S,--scripts
+	* The --script commandline flag can now be used multiple times to load multiple scripts
+	* Moved emoji settings to their own tab in the "settings" dialog
+	* Added a "style editor" menu entry to the "settings" menu
+	* Added a context menu option for all windows to "load style"
+	* Added the ability to load style files into the style editor
+	* Relabled and moved the buttons on the style editor to make more sense and be more informative
+	* Set the default file extension for scripts to ".erk"
+	* Set the default file extension for style files to ".style"
+	* Changed the default style file name to "text.style" (from "text.css")
+	* When looking for script files, the ".erk" file extension will be appended while looking for files
+	* When looking for style files, the ".style" file extension will be appended while looking for files
+	* Style files are now stored/loaded from a specific location (by default, a directory in the "settings" directory named "styles")
+	* Added a new commandline flag (--styles) to allow users to set a specific directory for style files
+	* Changed the "-F,--format" commandline flag to "-Y,--style" to match the new text style naming convention
+	* Updated the README with the new changes
+	* Added a commandline flag to disable style loading
+	* Added a menu bar to the "text style" dialog
+	* Chat windows now "remember" custom styles (they save when loaded, and are automatically loaded and applied)
+	* Remembered styles are not applied if the --nostyles flag is used
+	* An option to "restore" (set to default) styles has been added to the connection display context menu
+	* Clicking the "apply" button in the style editor only applies the style to non-custom-style chats
+	* A window's specific styling can now be edited and saved
+	* Added an "edit style" entry to the connection display's context menu
+	* Added load, edit, and revert options to the chat display's context menus
+	* Bugfix: server console styles could be loaded before it could be properly saved
+	* Bugfix: new style items in the chat display's context menu are no longer shown if styles are disabled
+	* Bugfix: context menus now use the same colors for all sub-menus
+	* Added Foreground\Background labels to the IRC color menus
+	* The "disconnect" menu option is now hidden when disconnected
+	* Moved the "disconnect" menu option to be directly under the "Connect" menu option
+	* Added a new command: /connectscript (which executes a connection script for a specific server)
+	* The /switch command will now let the user know if there are no available chats
+	* Bugfix: the /part commands now uses the Twisted client to part, rather than some GUI nonsense
+	* Added a link to the command documentation to the connection dialog's "script" tab
+	* Added syntax highlighting to the "script" tab's editor
+	* Added placeholder text to the "script" tab's editor
+	* Cleaned up and added some more explanitory text to the "connect" dialog
+	* Moved script syntax highlighting code to its own module
+	* Bugfix: saving a script from the connection dialog now auto-updates the script cache
+	* Added a script editor to the client
+	* Added an entry to run the script editor to the main menu
+	* Added editor documentation to the scripting documentation
+	* Converted separators in the main menu back to the stock QMenu widget
+	* Added new error displays to the script engine
+	* Added the ability for the script editor to display errors
+	* Added a new color for the script syntax highlighter: aliases
+	* Added a new command: /edit, which can be used to edit scripts
+	* Removed the menu option to launch the script editor (only way to open the editor now is with the /edit command)
+	* Bugfix: applying the "all" style to menus prevented them from displaying properly; "all" is no longer applied
+	* Added a commandline flag to block the script editor
+	* Added a new option to the config file: enable_script_editor
+	* Added new script editor setting to the "settings" dialog
+	* Added script syntax color settings to the config file
+	* Modified the "connection" dialog to load the config file and use the syntax settings
+	* Added new features to the script editor (autoscript loading, insert commands, some small bugs fixed)
+	* Updated the documentation with the new script editor features
+	* Added a new command: /_alias (allows scripts to create alias variables that will not be exported globally to all scripts/commands)
+	* Added new command to the command documentation, and add more info on how scripts work
+	* Added the new command to the syntax highlighter
+	* If /alias is called with the interpolation symbol ($) in the first argument, it is stripped
+	* Added support for multi-character interpolation symbols (if users want to do that...not sure why, but why not?)
+	* Syntax highlighting for multi-character interpolation symbols is supported
+	* Bugfix: when opening the script editor, the text entry widget is automatically in focus
+	* Added a commandline flag to disable scripts, macros, and plugins all at once
+
+Version 0.822
+	* First version with Linux support
+	* Fixed a bug where the connection display wouldn't update properly when the dock width changes
+	* Changed the default font to DejaVu Sans Mono
+	* Connection display width is now saved automatically when it is changed (rather than on exit)
+	* Added a platform notification to the about dialog
+	* Moved the GNU license link to the top (after the app name) in the about dialog
+	* "Open X directory" now uses QDesktopServices to open directories in a file manager in a cross platform way
+	* Fixed a bug with running plugins cross-platform
+	* Changed "Server options" menu entry to "Server settings"
+	* Added an option to show dates in channel chat
+	* Changed the option to mark resume chat to false by default
+	* Added a "radio button" style graphic to menus
+	* Fixed a bug where the "show timestamp seconds" menu entry was displaying wrong status
+	* Removed the "nomenu", "nosettings", and "noconnect" commandline options
+	* Changed the "-A"|"--noask" commandline option to "-N"|"--noask"
+	* The toolbar has been disabled on the OSX platform, and uses a normal QMenuBar on any platform besides Windows and Linux
+	* Added an error notification for IRC server connections that fail to be established
+	* Added an error notification for lost IRC server connections (only when the option to reconnect is disabled)
+	* Added a new built-in method to the Plugin object: userinput
+	* Added documentation for the userinput() method to the documentation
+	* Added a new option to the connect dialog: reconnect on failed connection (only active if "reconnect" option is turned on)
+	* User file is now patched with new option ("failreconnect") if the option is missing
+	* Rearranged the options on the connection dialog (now in two columns of two options each)
+	* Bugfix: single channel IDs (&,#, etc) with no other text would have links created for them in channel chat
+	* Added two new settings: one to toggle showing dialogs for connection lost, and one to toggle showing dialogs for connection failed
+	* New settings are patched into existing settings files
+	* Added connection/lost dialog toggle options to the "Settings" menu
+	* New "splash" logo graphics
+	* Bugfix: -l commandline flag now works properly
+	* New plugin method: msgbox()
+	* Streamlined toolbar/menubar generation; all done in one function now, no duplicate code
+	* Tweak to the new splash logo
+	* Network error dialogs are no longer modal
+	* New addition to text input context menu: IRC colors
+	* Tweaked the hex color codes used by the IRC color renderer to be closer to other IRC clients
+	* Restored nosettings, nomenus, and noconnect commandline options
+	* Bugfix: application window name is now reset properly if there are no active connections
+	* The backspace in the editor now follows the settings for indentation
+	* Updated the editor syntax highlighting to recognize the new built-in methods
+	* Bugfix: failed/lost connection notification dialog should close/hide on reconnection
+	* Added a toolbar with common functions to the editor
+	* Altered the "open plugin directory" function in the editor to open the plugin directory of the plugin currently being worked on, if known
+	* Added msgbox() and userinput() to the editor's context menu code generator
+	* Added menu (and toolbar) entries to read plugin documentation to the editor
+	* Bugfix: failed/lost connection dialogs are now properly closed when reconnection occurs
+	* The editor's "open plugin directory" option will open the directory of the plugin being edited, or the regular directory if no file is saved
+	* Added a list of banned users to the connection display right click context menu for channels
+	* Added /time command
+	* Cleaned up WHOIS response display
+	* Added /whowas command
+	* Added /whois command to autocomplete list and help
+	* Bugfix: /whois now can take multiple nicknames
+	* Added /version command
+	* Added /who command
+	* Moved indention settings to the their own menu in the editor
+	* Shuffled around menu locations in the editor to conform closer to other apps
+	* Tweaked the editor toolbar and added some new functionality
+	* Moved documentation button on the editor toolbar to the far right
+	* Bugfix: text input widget is given focus when the app window becomes active
+	* Bugfix: save file keyboard shortcut now works properly in the editor
+	* Added a dialog to the "install plugin" menu option (the dialog lists what plugins are going to be installed, and can be canceled)
+	* Re-arranged the pluugin menu to put "install" and "options" at the top, and the plugin list at the bottom
+	* Bugfix: lost/fail connection dialog would flash on exit/disconnect
+	* Added a little label to the connection dialog that notifies whether a server has been connected to before
+	* Added IRC network website URLs to the connection dialog
+	* Made the connection dialog a bit "prettier"
+	* Bugfix: font file set in the config file is now loaded/used for the initial launch connection dialog
+	* Added a setting to toggle channel userlists on/off
+	* Moved the "get hostmasks" option to the "Miscellaneous" settings menu
+	* Major overhaul of the settings menu, with a new "Preferences" dialog
+	* Bugfix: a number is added to the end of the user nick if both the normal and alternate nicks are taken; different numbers are appended until one is not in use
+	* Changed the in-app name of the program to "erk", due to not all fonts being able to display the schwa by default
+	* Added a new event method for plugins: ctcp() (triggered when the client receives an unknown CTCP message)
+	* Better cursor management (main chat only scrolls to the bottom if the user enters text or it is already at the bottom)
+	* Cursor no longer scrolls to the bottom when a link is clicked
+	* Server windows now have the server's hostname (or IP/port) as a title, instead of "Server"
+	* Server windows pre-registration now feature the IP/port as a title, instead of "Server"
+	* Bugfix: channel topic entry widget now resets to the current channel topic when it loses focus
+	* Changed the editor icon
+	* Bugfix: the log() plugin method was not saving printed messages to the log (it has been fixed, and is working properly now)
+	* Added a new plugin method: sysmsg() (writes a system message to the current window)
+	* Moved the "plugin development mode" setting to the "Preferences" dialog
+	* Re-arranged the plugin menu
+	* Renamed "Reload plugins" menu entry to "Load new plugins" (which is more accurate)
+	* Bugfix: channel links now appear in WHOIS responses when the user has op or voice in a channel
+	* Bugfix: text input widget is given (back) focus after entering a command
+	* Server connections made via command (/connect, /reconnect, /ssl, and /ressl) are now saved to the history and "last connected server"
+	* Bugfix: connections are now *always* saved in the "last connected" role regardless of whether the option to save connection history is turned on or off
+	* Bugfix: diconnection menu entry was being disabled improperly
+	* Added an "export plugin" option to the "Plugins" menu
+	* Redesigned the "macro" dialog
+	* Redesigned the "macro" menu
+	* Minor change to the in-app Erk logo
+	* Added a link to the official repository on the "home page"
+	* Added documentation to the /switch command
+	* Bugfix: wouldn't start/run correctly if "save history" was not turned on
+	* Bugfix: connection display doesn't show "unseen" messages on the currently displayed window
+	* Bugfix: chat display now starts at the bottom at the start of a session, like it's supposed to
+	* Logs now autosave every 5 minutes (if autosaving is turned on)
+	* Bugfix: user input did not always move the chat scrollbar all the way to the bottom when initially connecting
+	* Added a minimum cache size to log autosave (autosave will not occur unless there's a minimum number of lines to save)
+	* Set an option to change the autosave frequency to the "Log" menu
+	* Added an option to toggle runtime log autosave off/on
+	* Disabled the "autosave runtime" toggle and the option to set the autosave frequency if log saving is turned off
+	* Bugfix: text input widget would lose focus when certain types of messages were displayed; input focus is now maintained
+	* Bugfix: "unseen" marker in the connection display would not trigger is a CTCP action message was sent to a chat that was not the current chat
+	* Bugfix: "unseen" marker is now never triggered for the current window
+	* Chats with "unseen" messages are now marked with the same color used for error text, rather than with italics
+	* More events trigger the "unseen" marker: join, part, mode, quit, nick
+	* Added a neat new animation for the "unseen" marker; it will slowly (over 500 milliseconds) turn into the "error" color
+	* "Unseen" marker now uses the "system" color for the animation
+	* Added a small color animation to the "Connecting..." notification on the connection display
+	* The server uptime no longer displays while the connection process is still ongoing
+	* Connection display now shows the name of the server's IP/host rather than "Connecting..." while connecting
+	* Moved schwa "spinner" to the far right of the menu toolbar, just like the ol' Netscape :-)
+	* Bugfix: if "unseen" animations were turned off, windows with unseen messages would not be marked
+	* Bugfix: is "connecting" text animation is turned off, connecting text now changes color without the animation
+	* "Connecting" text animation now uses the "system" color
+	* Added options to turn off the connection display animations, and the corner schwa animation, to the config file
+	* Added animation options to the preferences dialog
+	* Bugfix: preferences dialog looked pretty bad under linux; this has been fixed
+	* Section entries in the preferences widget now look a little better
+	* Added an option to set an alternate directory for log storage/loading
+	* Bugfix: entries to user history were repeating, causing the user settings file to grow unexpectedly. Connections triggered through commands are no longer saved to the history.
+	* Bugfix: connections triggered through commands are, once again, added to the user history. Bugs causing repetition of entries has been fixed.
+	* Added the "/quit" command to the autocompletion and help engines.
+	* Added a new command: "/exit", which exits the application.
+	* Changed how the "/switch" command functions; calling it without an argument lists all available chats
+	* Using the "/connect", "/reconnect", "/ssl", and "/ressl" commands without arguments will now tick off appropriate options in the connection dialog (depending on the command used)
+	* Added a new command: "/preferences", which opens the preferences dialog
+	* Changed the custom menubar widgets to use the host os' color palette
+	* Ported Windows-centric development tools to Linux
+	* Fixed a minor cosmetic issue on the "Preferences" dialog
+	* Toolbar spinner will darken (for "light" color windows) or lighten (for "dark" colored windows)
+
+Version 0.820
+	* The main menu bar is no longer movable/floatable
+
+Version 0.810
+	* Added docstrings to generated plugin skeletons
+	* Changed the "connecting" icon in the connection display
+	* Changed the "network" icon in the connection display
+	* Changed the default package and plugin icons
+	* Added new, properly sized icons for editor menus
+	* Added the name of the package/plugin to the uninstall menu entries
+	* Uninstalling a package or plugin now executes the unload() method before removal (if present)
+	* On uninstall, a package or plugin's unload() is not executed if the package/plugin was never loaded
+	* Changed the connect icon
+	* Bugfix: user is notified if a nickname is used when using the /nick command (instead of trying to change to alternate nick)
+	* Added /invite command
+	* Added a /help command to display most basic commands
+	* Added invite notifications
+	* Added a new setting: autojoin on invite (turned off by default)
+	* Changed menu wording for autoswitching chats
+	* Made it so /invite in channel chat usage displays that the channel argument is optional
+	* Added a command-line option to load and use a user specified configuration file
+	* Bugfix: "convert URLs to links" menu entry now reflects the setting in the configuration file
+	* Bugfix: an error on initial connect is now displayed to the user, rather than erroring out
+	* Added operator notification
+	* Added an option to use an alternate text format configuration file
+	* Added an option to use an alternate user configuration file
+	* The client will create any missing config files from default if commandline alternates are used
+	* The client being kicked from a channel is now handled properly
+	* User kicks are not being handled properly
+	* Channel names in chat messages are now converted to link (click on the channel name to join the channel)
+	* Added an option to turn channel links on and off
+	* Bugfix: URL links would not display properly with some URLs
+	* Bugfix: instances of '&', '#', etc, on their own are no longer made into channel links
+	* Bugfix: custom configuration file are now loaded consistantly
+	* Bugfix: no channel links for messages with " in them
+	* New plugin event: notice() (triggered when the client receives a notice)
+	* Clarified some command-line flag text
+	* Changed the text format menu entry from "Colors" to "Text colors & formatting"
+	* Connection dialog now lists visited servers first in the server selection widget
+	* Bugfix: fixed some errors with detecting channel names in chat to convert into channel links
+	* Added "nickname grabber" plugin to the default installed plugins
+	* Changed timing for the "nickname grabber" plugin
+	* Connection display width is now "remembered" and restored on close and restart
+	* Window width and height is now "remembered" and restored on close and restart
+	* Changed "set initial window size" entry to "set window size" to reflect the new changes
+	* Changed the "set window size" dialog to use the app's current window size rather than stored values
+	* Bugfix: turning on/off syntax highlighting in the editor would also turn on/off the editor status bar
+	* Bugfix: channel links are not longer inserted into anything other than chat messages
+	* Changes to the help command (different command lists are shown to different windows)
+	* The "set window size" menu entry now displays the current window size
+	* Channel links are now *only* created if the channel exists on the server
+	* User input can now create channel links
+	* Channel list is obtained on server connect (if the server has SAFELIST turned on), and is refreshed once an hour
+	* Changed "Channel Displays" menu entry name to "Chat Displays"
+	* Added an option to change the system message prefix from the GUI
+	* Created a new settings menu submenu ("Miscellaneous") and placed all un-menued settings in the settings menu in it
+	* Added a menu option to toggle auto channel list retrieval on/off
+	* Added a channel list retrieval and display command, "/list"
+	* Added a command to refresh the cached channel list: "/refresh"
+	* Added an option to the GUI to set the auto channel list refresh time, in seconds
+	* Added options to hide mode, quit, invite, join, part, and nick messages to the GUI
+	* Hidden system messages are still recorded, but hidden ("unhiding" the messages will cause them to reappear in the chat display)
+	* Added a command-line flag to launch in fullscreen
+	* Fullscreen mode now disables the "set window size" menu option
+	* Added command-line options to set window initial width and height
+	* Added an additional command-line option category ("Display"), and moved appropriate command-line options to it
+	* Renamed command-line category "Miscellaneous" to "Configuration"
+	* Renamed command-line category "Plugin development" to "Plugins"
+	* Fixed a bug where the window width and height would not save to the configuration file
+	* Added an option to show the name of the current chat in the application title
+	* Added an option to show the current channel's topic in the application title
+	* Added official repo/plugin repo to the help menu
+	* Added an option to toggle channel information widgets (name, modes, key, topic, etc) on and off
+	* Added the /topic command
+	* Added the input command symbol (/) to the configuration file and code
+
+Version 0.800
+	* First initial 0.800 release
+	* Added a "find and replace" dialog to the editor
+	* Moved package/plugin specific menu entries to their own menu in the editor ("Tools")
+	* Moved indent conversion tools to the "Tools" menu
+	* Added a shortcut (Ctrl+Q) to the "Quit" menu entry in the editor
+	* Added an instance count to the editor's find/replace dialog
+	* Cleaned up and (mildly) revamped the find and find/replace dialogs
+	* Bugfix: find and find/replace will no longer register blank search terms
+	* Labled find/replace inputs in the find and find/replace dialogs
+	* Editor font is now user selectable
+	* Added plugin method generators to the editor's context menu
+	* Bugfix: uptime() is now displayed correctly in the editor
+	* Find/replace now displays count following case sensitive/insensitive rules
+	* Added a status bar to the editor displaying the current file name
+	* Added special plugin attributes to the syntax highlighter
+	* Changed the "font" menu icon
+	* Added a character limit (40 chars) to a plugin's description in the plugin menu
+	* Added an option to show/hide the status bar in the editor
+	* Added an option to toggle syntax highlighting in the editor
+	* Added a package name display to the status bar
+	* Added more credits to the "about" dialog
+	* Removes ASCIImoji credit from the "about" dialog (as we don't use ASCIImojis anymore)
+	* Added options to export chat logs as both text and CSV
+	* Removed the option to export as CVS; added an option to select the delimiter in the export log dialog
+	* Added an option to select the entry delimiter in exported logs
+	* Added an option to export logs as (simplified) JSON (all internal Erk data is stripped)
+	* Bugfix: only JSON files in the log directory are available for export now
+	* Bugfix: more criteria are applied to file names to find generated chat logs
+	* Made the export log dialog resizable
+	* Made the export log dialog a little "prettier"
+	* Added miscellaneous channel op options to the channel chat display's context menu
+	* Added an option (and dialog) to set a channel key to the chat display's context menu
+	* Added icons to the chat display context menu
+	* Added an option to convert times from epoch to human readable in exported logs
+	* Changed human readable time format to be more like other IRC client log formats
+	* Bugfix: fixed import error preventing the editor from being used
+	* Bugfix: channel topic display's context menu now displays correctly
+	* Bugfix: text input widget should now retain focus most of the time
+	* Added a setting to en/disable prompt for save on editor exit
+	* Editor status bar now displays if the current file is in a package or is standalone
+	* Changed the log icon
+	* Changed the plugin icon
+	* Bugfix: when creating a new package in the editor, the package's name is now displayed correctly
+	* Bugfix: editor now uses the editor font if started from the commandline
+	* Separated the two different documentation plugins into two separate files
+	* Entries in the plugin menu now feature an "uninstall this plugin" entry
+	* Removed the "uninstall package dialog" and all menu trigger
+	* Moved "editor" and "install" menu entries back to the "plugins" menu
+	* Revamped the "macro" menu
+	* Made plugins and packages have different icons in the plugin menu
+	* Moved display settings to their own menu (named, funnily enough, "display")
+	* Moved en/disable macro and plugin options to the "settings" menu
+	* Tweaked menubar graphics
+	* Bugfix: background/foreground colors are now applied to widgets on startup (instead of being ignored)
+	* Added a command-line option to install a plugin
+	* Added part() and join() methods to to plugins
+	* Added tick() method to plugins
+
+Version 0.703
+	* ASCIImoji support has been removed
+	* Added an option to set the app window always on top
+	* Moved some settings in the settings menu
+	* Added an option to display app full screen
+	* Added an option to show (or suppress) plugin load errors
+	* The plugin uninstall dialog now shows plugins not loaded due to errors
+	* Reloading plugins now displays errors (if error reporting is turned on)
+	* If the editor is started from the client, "failed" packages will now be marked in the export package dialog
+	* Changed some plugin error messages to be clearer
+	* Fixed toolbar spinner icon (static icon was slightly bigger than animated icon)
+	* New error reporting dialog for plugin load errors
+	* Added an option to display seconds in timestamps
+	* Added a new built-in plugin method: exec()
+	* The uninstall plugin menu option will only be shown if plugins are installed
+	* Added a new command: /script (executes input commands from a file, one command per line)
+	* Moved the disabled plugin list to the user settings file (user.json)
+	* Moved the plugin and macro toggles to the main menu
+	* Disabling macros hides the macro menu
+	* Disabling plugins hides the plugin menu
+	* Moved the "install plugin" menu entry to the main menu
+	* Moved the "uninstall plugin" to the bottom of the plugin menu
+	* Rearranged plugin menu (moved options to the top like the macro menu)
+	* Bugfix: starting with macros or plugins disabled from the commandline will no longer cause "glitches"
+	* Install plugin menu entry is now hidden is plugins are disabled
+	* Moved the editor launcher to the main menu
+	* Added support for IRC URLs as a commandline option
+	* Plugin specific methods are now "highlighted" in the editor
+	* Added auto-indentation to the plugin editor
+	* Bugfix: autoindent will now use tabs if the editor is set for tab indentation
+	* Added a utility to the editor to change indents from tabs to spaces and vice versa
+	* Added plugin framework credit to about dialog
+	* Added user ignoring into the client
+	* Changed the default indentation in the editor to be four spaces
+	* Updated the documentation plugin (included) to use the new default indentation
+	* Added a new built-in plugin method: uptime()
+	* Added optional plugin attributes to all "documentation" (example) plugins
+	* Added menu notification if no plugins are installed
+
+Version 0.702
+	* Plugin loading is now handled in plugins.py
+	* Plugins are only loaded once
+	* Plugins are not unloaded if they haven't been loaded
+	* Fixed a bug where occasionally plugins would not unload on exit
+	* Added the console() plugin method to write to server consoles
+	* Updated plugin documentation
+	* Added an option to reload all plugins (so that new ones can be loaded) at runtime
+	* Added a menu command to display the plugin directory
+	* Added the built-in plugin method print() for text display
+	* Updated the example plugins (and documentation) with the new print() method
+	* Fixed a minor bug where items in the connection display would stay selected if the context menu was invoked
+	* Added plugin editor
+	* Added menu entries to do plugin development stuff
+	* Added development mode (menu options to write/edit plugins can be turned on/off)
+	* Added an option to the editor to manage indents (spaces vs tabs)
+	* Added an option to the editor to toggle wordwrap
+	* Added a plugin template generator to the editor
+	* Bugfix (changed the name of server consoles passed to plugins)
+	* Bugfix (double quotes are now escaped in plugin info passed to the template generator)
+	* Connection history now tracks servers in the built-in server list
+	* The connection dialog now shows servers connected to previously
+	* Bugfix (un-floating the connection display would leave the current chat display at a non-last message location)
+	* Bugfix (editor title wouldn't show if a file was saved or not)
+	* Plugin menu only shows an option to force load() or unload() execution if the plugun supports it
+	* Parent Plugin class no longer has "empty" method stubs
+	* Bugfix (spinner restored to the main menu toolbar)
+	* Added a commandline option to disable plugins completely
+	* Added a commandline option to disable macros completely
+	* Added a plugin package generator to the code editor
+	* Fixed a bug in the commandline package generator
+	* Added an option to zip up plugin packages for export
+	* Added an option to install zipped plugin packages in the GUI
+	* Added a commandline option to disable settings menus
+	* Added an option to uninstall plugins from the "Plugins" menu
+	* Changed some dialog button text to make intent clearer
+	* Added a commandline option to disable the main menu
+	* Added a commandline option to start up the code editor (without starting the client)
+	* Added a commandline option to disable all connection commands (like /connect, /ssl, etc.)
+	* Changed the flag for not asking for a server on connect to "--noask"
+	* All disabling commandline flags are now capital letters
+	* Added a commandline option to open a file in the code editor
+	* Bugfix (emoji autocomplete data is now loaded into memory in latin-1 encoding)
+	* Added a commandline option to create a new plugin and open it in the editor
+
+Version 0.701
+	* The application tool bar is now built (and rebuilt) programmatically
+	* Patched the Twisted IRC client class to optionally write outgoing messages to chat displays
+	* Patched ^^ to optionally open private chat windows (if the "create private windows" setting is true)
+	* Patched .describe to optionally write to chat windows
+	* Added the /notice command
+	* Patched .notice to optionally write to chat windows
+	* Added an option to send macros as notice messages
+	* Patched methods now write text to chat by default
+	* Outgoing CTCP replies no longer will create chat windows (or displayed at all)
+	* Errors and output resulting from commands are no longer saved to log
+	* WHOIS results are also no longer saved to log
+	* Fixed a bug with IRC color display
+	* Bugfix (hostmasks didn't display in the userlist context menu w/ text only userlists)
+	* Added a new commandline flag: -l or --last to automatically connect to the last server
+	* Changed the default log load length from 500 to 300 lines
+	* Simplified the user display in the userlist context menu
+	* Added commandline options/flags to set server/channel auto-connection
+	* Fixed a bug where CTCP replies would be displayed multiple times
+	* Initial plugin framework code has been introduced in the source
+	* Added documentation to the plugin framework
+	* Added a crude detector for malicious plugin code (looks for code that prevents all user input)
+	* Added .write() and .log() plugin methods
+	* Fixed a bug where plugin icons were not shown in the menu
+	* Plugin menu now displays plugins by package, and is a little prettier
+	* Plugins now look for icons where they are displayed
+	* Plugins can now be enabled (and disabled) individually
+	* Added an option to disable (or enable) all plugins at once
+	* Added an option to disable (or enable) all macros at once
+	* Plugin packages can now have customizable names
+	* Plugin packages can now have custom icons
+	* Added documentation plugin examples to the distribution
+	* Added a command-line flag to generate a new "blank" plugin
+	* Added "trout" macro to the distribution
+
+Version 0.700
+	* Complete re-write
+	* All-new items: no more MDI interface, uses far less memory, is far more stable, and is far easier to use
+	* Cleaned up the "connect" dialog
+	* Users can now save server information for servers they've connected to
+	* /nick and /join now show their respective dialogs if executed with no arguments
+	* Added /connect, /reconnect, /ssl, and /ressl commands
+	* Implemented the QUIT event
+	* Added /quit command
+	* New channel status icons
+	* Users can now use text-only user lists in channels
+	* Users can have a channel status icon next to their nickname on channel windows
+	* Users can now hide/show the channel window nickname and channel status display
+	* Consolidated "display" and "settings" menu into a single "settings" menu
+	* Removed "log" shortcut from the connection display
+	* Added a new command: /switch (allows users to switch chats with commands)
+	* Added "home" (the master log) to the /switch command
+	* Fixed a crashing bug (triggered when attempting to switch to an already open private chat)
+	* Added a context menu to channel userlist widgets
+	* Added WHOIS display, and a WHOIS command to the userlist context menu
+	* Added /whois command
+	* Added an option to toggle whether servers expand on connection in the connection display
+	* Added an option to turn input history on/off
+	* Bugfix: context menus didn't work with text only userlists
+	* Clarified some menu entries
+	* Moved input history toggle to its own menu, and added an option to grow/shrink the history size
+	* Changed the starter page image
+	* Removed logging information from the starter page
+	* Added channel autologging
+	* Added settings to turn channel logging on/off
+	* Added settings to mark log load end and log resume
+	* Added private message autologging
+	* Added settings to turn on/off private autologging
+	* Added an option to set the size of the logs loaded
+	* Fixed a bug where some settings would not be saved
+	* Added a text color/format dialog
+	* Added an "about" dialog
+	* "Lock" icon is now properly displayed on keyed channels
+	* Upon disconnections, channels are now rejoined on reconnection
+	* Added /send message (to send raw, unaltered commands to the server)
+	* Added RFC links to help menu
+	* Added shortcode lists (for emojis and ASCIImojis) to help menu
+	* Bugfix; chat text windows change font size occasionally. This is now prevented
+	* Added /send and /mode commands
+	* Added /away and /back commands
+	* Bugfix for /mode command (/mode can now implicitly issue changes for the current channel, or explicitly for other channels)
+	* Added the /oper command
+	* Made WHOIS data messages a bit prettier (username is displayed in system colors, and other data is displayed with IRC color codes)
+	* Users are now shown away messages when trying to PM or whois a user
+	* System messages are now prefixed with a symbol
+	* Users can dis/enable system message symbol prefix
+	* Away messages triggered by "auto-whois on join" are no longer displayed
+	* Added server settings display to the connection display context menu
+	* Added a link to the IRC network webpage (if there is one) to the connection display context menu
+	* Added server IP, port, and hostname to the connection display context menu
+	* Changed the "exit" icon
+	* Added user macros
+	* Added a dialog for creating and editing macros
+	* Added "macro" menu for macro management
+
+Version 0.600
+	* Complete re-write
+	* Removed the "Connections" menu, and placed its contents in the main menu
+	* Added an option to fetch user hostmasks, if necessary
+	* Added userlist context menu
+	* HTML stripping now works again
+	* The client can now send (and display) special characters associated with HTML (like < and >)
+	* Added a network traffic display
+	* Added an option to show network traffic from connection on
+	* Fixed net traffic display to follow text format style changes
+	* Added a MOTD display
+	* Added mode display menu to channel windows
+	* Added ban display menu to channel windows
+	* Made mode and ban menus dynamic (if there is no info to display, they are hidden)
+	* Added /topic command
+	* Command errors are now displayed in red
+	* Added /away and /back commands
+	* If the user has the nickname display visible, going /away will unbold and italicize the nick; /back reverses this back to normal
+	* Added to the left click console menu in channel chat; users can now set modes (if they have the right privledges)
+	* Added an option to hide channel window mode and ban menus
+	* Removed the "Text entry" section from the display settings menu, and added a "Channel window" entry
+	* Bugfix: ban and mode menus would not disappear is turned off. Now the function works as expected
+	* Consolidated all settings into one menu
+	* Cleaned up settings menu code
+	* Added a windows menu, listing all subwindows
+	* Changed name of message settings menu to "Message display"
+	* Changed the icon of the message display settings submenu
+	* Added command history to all window text entry widgets
+	* Added options to toggle history on/off and to set the size of the history buffer
+	* Moved "save channels", "save history", and "on top" entries to settings menu
+	* Made the main menu a bit prettier
+	* Bugfix: new fonts weren't being applied to all widgets. They are now.
+	* Made the font, formatting, and initial window size entries in the settings menu smaller
+	* The font setting menu entry now shows the font currently being used
+	* Changed icons from black and white to color
+	* Removed unnecessary spacing from most dialogs
+	* Setting a channel topic to blank space will result in a channel topic being "unset" (or set to nothing)
+	* Added all IRC message strings to erk.strings
+	* Added options to suppress server message displays in channel windows
+	* Fixed a bug with the connection display (hover background changes now work properly)
+	* Added a right click context menu to the connection display
+	* Added the /whois command
+	* Added /invite command
+	* Incoming invites are now displayed in the current active window
+	* Outgoing invites are now displayed in the current active window
+	* Added WHOIS command to the user list context menu
+	* Added context menu text to erk.strings
+	* Added user ignore option (and a dialog to manage user ignores)
+	* Added /oper command
+	* Added /ignore and /unignore commands
+	* Added server identification to the ignore dialog
+	* Added universal (not connection-specific) ignoring
+	* Modified ignore dialogs and back-end to work with universal ignores
+	* Added use information to the "add ignore" dialog
+	* Added /cnotice and /cprivmsg commands
+	* /cnotice and /cprivmsg will only autocomplete if the server supports the command
+	* Added /time command
+	* Added /userhost command
+	* Added /knock command
+	* Added "i" to the channel mode display
+	* Changed how ignore data is saved (connection ID is now the server's IP and port)
+	* Added an option to save ignore data to disk
+	* Moved logging options to their own top-level menu
+	* Moved connection options to their own top-level menu
+	* Added new menu entries to erk.strings
+	* Fixed nicknames being displayed improperly on channel windows
+	* Added chat display context menu entries to erk.strings
+	* Moved "get hostmasks on channel join" to root "connections" menu
+	* Fixed a bug with the "get hostmasks" menu entry
+	* Moved network display settings back to the "settings" menu
+	* If the network display is set to show traffic from connection, the window is no longer created and hidden immediately
+	* Network display windows are now shown in the "windows" menu
+	* Tracking network traffic from connection is now turned off by default
+	* When traversing command history, the cursor is now moved to the end of the history text
+	* Added macros
+	* Added a macro creation dialog
+	* Added a macro menu to show installed macros
+	* Moved macro menu to before the "windows" menu
+	* Entries in the macro menu are no longer clickable
+	* Added macro argument count to the macro menu display
+	* Bugfix: macros can no longer require a maximum # of arguments lower than the minimun # of arguments, and vice-versa
+	* Macro menu can be rebuilt from the menu
+	* Bugfix: refreshing the macro directory no longer changes the active window
+	* Macros have been moved to their own file/namespace
+	* Macros are now removed from memory if they are not in the filesystem
+	* Moved macro autocomplete to its own subroutine
+	* Added an option to turn macro autocomplete on and off
+	* Deleted macros are now removed from autocomplete correctly
+	* Added a macro editor
+	* Changed the IO display window icon to match the other icons
+	* Changed the current window display indicator
+	* IO windows are now shown in the connection display
+	* IO windows can now hide on close; added a user setting to control this
+	* Removed the "networking" icon in favor or the IO window icon
+	* Added "view network io" and "view motd" to the consoles' command menus
+	* Icons in the macro menu are now the same size as the rest of the main window menu icons
+
+Version 0.510
+	* Resized the icons for channel, locked channel, and user windows to match the margins with other icons
+	* Added a PDF viewer as an MDI subwindow
+	* Added the ability to load/view the plugin documentation in the GUI
+	* Added a crude in-application web viewer/browser
+	* Added a channel option to open links in the in-application browser
+	* Added a private chat option to open links in the in-application browser
+	* Plugin documentation has been added
+	* The "Plugin" menu has been added, showing enabled (and possibly disabled) plugins
+	* An option to show (or hide) disabled plugins has been added
+	* A "Manage Plugins" entry has been added to the main menu
+	* A "Manage Plugins" dialog has been added, for dis/enabling and installing plugins
+	* The plugin frame work has been added
+	* Added a PDF viewer
+	* Added Mozilla's pdf.js for PDF viewing, and added pdf.js to the about credits
+	* Removed pdf.js, as it's huge (11mb unzipped)
+	* Added PyQtWebEngine as an optional requirement (if it's not installed, the in-app browser can't be used)
+	* Fixed a bug in text windows
+	* Fixed a bug where the plugin menu wouldn't render if there were no plugins
+	* Plugins menu now displays if no plugins are loaded
+	* Previously visited servers will *always* show at the top of the "Servers" dialog server list
+	* Made the "Text Window" icon more visible
+	* Changed server icons
+	* Changed the "host" icon
+	* Changed console window watermark
+	* Changed the font icon
+	* Channel and user windows will now only use *one* shared browser window
+	* Re-arranged channel and user chat options menus
+	* Removed the "TICK" plugin event
+	* Receiving "JOIN" and "PART" commands will now request a new user list from the server
+	* Icons in the userlist were shrunk down to 18x18
+	* Fixed a bug where bad nicknames would be used repeatedly until disconnection
+	* Text display is now scrolled to the bottom when subwindow state changes
+	* Added an option to enable or disable user hostmask retrieval
+	* Added a toolbar to the MDI widget, and moved the menus to the new toolbar
+	* Removed the icon from the console window
+	* Added "Emoji" submenu to "Settings" menu
+	* Added "Miscellaneous" submenu to "Settings" menu
+	* Cleaned up and rearranged the "Settings" menu
+	* Moved default user editing from the main menu to the settings menu
+	* Added console windows to "Windows" menu
+	* Console windows will only be shows in "Windows" menu if the console is hidden
+	* Fixed a bug where sometimes channel and user chat windows would render text larger than it should be
+	* User entry background in the channel user list display will darken when hovered over
+	* User entry status icons now resize to fit the currently used font
+	* Added a new connection/window display, ala HexChat
+	* Removed the "Connections" menu, as all that info is now displayed on the connection/window display
+	* Moved "Display" settings to their own menu
+	* Added "unread message" notification to the connection/window display
+	* Connection/window display expands/collapses as needed
+	* Added a background image to the connection/window display
+	* Moved IRC event code to a different file
+
+Version 0.501
+	* Moved user config files to their own directory in "settings/", "user"
+	* Settings filename changed from "erk.json" to "settings.json"
+	* The text style settings file now uses a css-like language instead of JSON
+	* The text style settings filename was changed from "style.json" to "text.css"
+	* Increased the size of main menu icons
+	* Decreased the size of menu and context menu icons in channel windows
+	* Moved "edit user info" entry to the "Erk" menu
+	* Moved "edit ignored users" to the "Settings" menu
+	* Removed the "Edit" menu
+	* Fixed a bug in receiving channel modes (modes with arguments wouldn't be processed correctly)
+	* Changed icon for locked channels
+	* Locked channel windows now use the locked channel icon
+	* Locked channels in the "Window" menu now use the new icon
+	* Added additional information to the "Connections" menu (server network, user nick and modes)
+	* Added an option to display (or hide) additional information in the "Connections" menu
+	* Changed to "connected to previously" icon in the "Servers" dialog to make it stand out more
+	* Added a new "channel list" dialog for displaying channel server lists
+	* Added a channel list command to the server connection menu
+	* Added the /list command to channel and console windows
+	* Changed the name of the "/raw" command to "/send"
+	* Added a menu to the console window with functions from the connections menu
+	* Added filter options to the channel list dialog
+	* Added a search option to the channel list dialog
+	* Servers from the built-in list are now marked if the client has connected to them before
+	* Visited servers now display when they were last connected to in the "Servers" dialog
+	* Added commandline flag --forget to delete server history
+	* Added commandline flag --default to reset all configs to default (by deleting the files)
+	* Added commandline flag --dump to print all network traffic to the console
+	* Fixed a bug in the /quit command (now uses the same process as the GUI, and works)
+	* Fixed a bug in diconnecting (when from an error or lost link)
+	* Added a new submenu in the "Settings" menu, "Miscellaneous"
+	* Added an option to turn on (and off) rejoining channels on disconnection
+	* Added an option to turn on (and off) the /send command in server console windows
+	* Changed "Display IRC color codes" setting to "Display IRC colors"
+	* Added a tab bar to console windows; the normal server console is the first tab
+	* Added a "network dump" tab to the console window (shows all IRC input and output as it happens)
+	* Fixed a bug in disconnecting (connections weren't being removed from memory properly)
+	* Increased the default initial window size to 500x300
+	* Moved the toggle /send on/off option to individual console windows
+	* Moved the toggle connection console on/off to inidividual console windows
+	* /send is now off by default
+	* Connection console is now visible by default
+	* Removed "Miscellaneous" settings submenu
+	* Removed icons from the connection console display
+	* Turned on word wrap in the connection console display
+	* Added '->' for input and '<-' for output in the connection console display
+	* Added timestamps to the connection console display
+	* Fixed a bug where receiving notices would open user windows
+	* Added a new text style: "notice_body" (notices will now be italic purple)
+	* Changed the name of the "whois_result" text style to "whois_body"
+	* Resuming chat is now marked with a horizontal line
+	* Added a server MOTD viewer dialog
+	* Added text-separators to the "Windows" menu
+	* Made the "Settings" menu a little nicer looking
+	* Fixed a bug in handing QUIT messages (wouldn't always be handled properly)
+	* Added options to channel windows that allow the user to filter/block certain types of messages
+	* The client now grabs hostmasks from wherever it can (if UHNAMES is not working)
+	* Userlist context menus look a little better
+	* Added an option to channel windows to set the channel topic (if channel modes allow)
+	* Added a notification for users setting the channel topic to nothing
+	* Added system tray icon for optional unread message notification
+	* Fixed bug in rejoining channels on disconnection
+	* Added a "leave channel" item in the channel options menu
+	* Fixed a bug where the two console window menus didn't have the same size icons
+	* Changed the "disconnect" icon to be more visible
+	* Moved four icons (Erk, Cascade, Tile, and Flash) into the /resources/gui folder
+	* Changed the icon for the text display window
+	* Current nickname is now displayed in the "change nick" dialog
+	* Streamlined the "Connections" menu
+	* Removed the small "Connections" menu icons from the app
+	* Removed "show extended connection details" option (as it is no longer needed)
+	* Changed the MOTD icon
+	* Fixed a bug where user modes were not displayed properly in the "Connections" menu
+	* Got rid of the "Settings->Windows" menu (entries were moved to the "Settings->Display" anmd "Settings->Chat" menus)
+	* Fixed a bug where a server's MOTD window would not be closed on disconnection
+	* Fixed a bug where the text formatting config file would not be generated correctly
+	* Added a link to Qt's QSS website in a comment in the text formatting config file
+	* If the server doesn't provide hostmasks in channel user lists, hostmasks are now requested from the server in the background
+	* Fixed a crashing bug (hostmask updating would try to search the user list of private chat windows)
+	* Private chat windows now have the user's hostmask in the title bar, if known
+	* Added a "Private Chat" menu to private chat windows
+	* Added a whois command to private chat window menu
+	* Added a "close chat" option to private chat windows (the window is restroyed whether "hide private window" is in effect or not)
+	* Added a "Invite" dialog (for inviting users to channels)
+	* Added an "Invite" icon
+	* Added an "invite user" option to user window "Private Chat" menu
+	* Added a "Send channel invite" option to the channel window userlist context menu
+	* Changed icons for part, host, server, and network
+	* Changed all window icons to be more visible, informative, and, well, *nicer looking*
+	* Away messages will no longer be displayed in channel windows
+
+Version 0.500
+	* Completely re-written
+	* Added the /whois command to console, channel, and user chat windows
+	* Removed "Disconnect" entry from the "Server" menu on channel and user chat windows
+	* Added a server/network name display to the console's "Server" menu
+	* Console window titles now reflect the server's hostname and network
+	* Added a "Connections" menu to the main window
+	* Added the /topic command
+	* Removed "Server" menus from channel and user chat windows
+	* Moved all channel op actions to their own menu in the userlist context menu
+	* Moved "Always on top" menu option to the "IRC" menu
+	* Moved "Full screen" menu option to the "IRC" menu
+	* Changed "IRC" menu name to "Ərk"
+	* Added the /oper command
+	* Added the /invite command
+	* Changed the filename of "mdi.py" to "main.py"
+	* Added the /quit command
+	* Added the /raw command to the console
+	* Added the option to save connection history
+	* Made the main "Erk" menu prettier, and a bit easier to understand
+	* Moved "Always on top" and "Full screen" options to their own "Settings" submenu ("Display")
+	* Added the "save history" option to the "Connections" menu
+	* Added "autocomplete asciimoji" option
+	* Added "autocomplete emoji" option
+	* Moved autocomplete corpus to their own directory
+	* Fixed a bug with nick changes
+	* Added user nickname to optional chat window status bars
+	* Simplified the "Connections" menu
+	* Added a space before the nickname on the chat status bars
+	* Made the "Servers" dialog a little prettier, and cleaned up the code
+	* Removed QtMultimedia requirement, as the library is not being used
+	* Added a watermark to the console background (to distinguish it from a chat window)
+	* Added "/away" and "/back" commands
+	* Chat window status bars are now turned on by default
+	* Added an uptime display to all windows
+	* Added options to hide/show uptime displays
+	* Added an option to hide/show seconds in uptime display
+	* Moved uptime settings to their own submenu in the "Settings" menu
+	* Changed the "Timestamp" icon to a clock
+	* Changed the "Uptime" icon to a stopwatch
+	* Changed console, channel, and user window icons to match the main app icon
+	* Rearranged the "Settings" menu
+	* Fixed a bug where autocomplete would not identify some ASCIImojis and emojis
+	* Added a "keep connection alive" option
+	* Modified to "edit user" dialog to show which values are still set to their default
+	* Added a commandline option to set the "keep alive" heartbeat interval
+	* Added a dialog to edit the initial size of subwindows
+	* Moved the "Font" menu action to the "Display" menu
+	* Added a bunch of commandline options (including connecting to IRC on client start)
+	* Fixed a bug where removed modes would not be reported
+	* Added an "Operator" menu to channel windows with common chanop functionality
+	* Added new menu icons for p,s, and t channel modes
+	* Added IRC color code rendering for incoming chat
+	* Added an option to turn off (and on) IRC color code rendering
+	* Added the /color command to chat windows
+	* Fixed a bug in autojoining channels on disconnection
+	* Added -c option to commandline (to join channels on connection)
+	* Added -p option to commandline (to set/use a server connect password)
+	* IRC URLs (eg irc://erk@password:localhost:6667/channel) can now be passed to Erk as a commandline option
+	* Added "old school" commandline option (turns off most settings)
+	* Added an option to turn off (and on) user ignoring
+	* Fixed a bug in the /color command (sometimes colors would not be applied to strings)
+	* Fixed a bug in IRC color rendering (some background colors would never be rendered)
+	* Added a check to see if a string has IRC color codes before attempting to render the IRC color codes in the string
+
+Version 0.413
+	* Clicking on the chat toolbar "name" widget will do nothing if the window is the active window
+	* Removed "away" status display in window's menu
+	* Fixed a bug where away status was not set properly
+	* Timestamps can now optionally use a 12-hour clock instead of a 24-hour clock
+	* Added an option to display (or not to display) seconds in timestamps
+	* Moved timestamp settings to their own submenu in the "Settings" menu
+	* Changed how timestamps are rendered
+	* Changed the "About" dialog's layout
+	* Fixed a bug where timestamps wouldn't change when settings changed
+	* Moved all setting files in the "settings/user" directory to the "settings" directory
+	* Channel autojoins are now saved in a single JSON file in the "settings" directory
+	* Removed directory placeholders (necessary directories are created if needed)
+	* Changed file name of "ignore.json" to "ignored.json"
+	* Fixed distribution build script (several needed libraries weren't being added to it)
+	* The connection will not be rerendered if nothing has been written to it
+	* Fixed a bug where autojoin channels would not be stored (or used)
+	* Channel keys are no longer displayed in the autojoin list display
+	* Channel key is masked when adding a channel to autojoin
+	* Added a commandline option to disable channel autojoins
+	* Reconnect option in connection dialogs is now persistent
+	* Added a commandline option to store all setting files in a zip archive
+	* Added a commandline option to import setting files from a zip archive
+	* Added a commandline option to disable user ignoring
+	* Added a commandline option to disable the "Display" menu
+	* Added a commandline option to disable the main application menu
+	* Shortened commandline flags for "config" and "display"
+	* Cleaned up some of the commandline help text and option names
+	* If log loading/display is disabled, the menu to select the size of the display will be disabled
+	* If spell checking is disabled, the menu options to set spell check language will be disabled
+
+Version 0.412
+	* Removed plugins, the plugin editor, and all plugin-related code and graphics from the client
+	* Moved the default resource files into erk.data
+	* ASCIImojis now use parentheses codes (such as (bear) or (smile))
+	* Emojis and ASCIImojis are now enabled by default
+	* Moved most settings in the "Display" menu to the "Settings" menu
+	* Separated settings in the "Settings" menu into categories
+	* Fixed a bug in loading built-in resources
+	* Moved the "Display" menu to be after the "Settings" menu
+	* Moved some of the graphics from erkimages.py to resources.py
+	* Made the title of the systray menu smaller
+	* Removed private message suppression (plugin leftover)
+	* Removed dependencies for fnmatch and shlex from main.py
+	* Away status is now displayed on the server toolbar
+	* Added optional toolbars to all chat windows
+	* Moved default (unthemeable) graphics to its own namespace
+	* Clicking on the channel/user name in the chat toolbar shows the channel's/user's window
+	* Added window controls (minimize, maximize, normalize) to the chat toolbar
+	* Timestamps are now displayed in connection log messages
+	* Added an option to save the connection log contents to file
+	* Added an option to export JSON configuration to file
+	* Moved the resources in erkimages.py to a new namespace
+	* Changed the background image for the MDI widget
+	* Channels passed as commandline arguments have a "#" prepended if necessary
+	* New IRC network list
+	* The network config dialog has been made a bit better looking
+	* Removed the "about" dialog for the code editor (as it's no longer in the client)
+	* Added an option to save connected IRC servers to the IRC network list
+	* Moved saved server list to the user settings/info directory
+	* Saved servers are now underlined in the "connect to network" dialog
+	* Changed the "server" icon
+	* GREATLY expanded the number of IRC networks that will show a WWW link in the server info menu
+	* Fixed a bug where servers from the built-in list would get saved as new servers
+	* The built-in server list is now loaded into memory on program start
+	* Window control buttons on chat toolbars are now disabled if the toolbar is not floating
+	* The built-in server list is now checked when IRC network names become known
+	* Added a note to the "connect to network" dialog to show which entries are saved servers
+	* Changed the name of the saved server list to "servers.conf"
+	* Fixed a bug in incoming private messages
+	* Changed icons for public and private chat windows
+	* Changed window related icons to look more unified
+	* Changed icon for "locked" channels
+	* Converted chat toolbar menus to push buttons
+	* Changed the "hide console" icon
+	* Removed several unused icons
+	* Changed the "kick" icon
+	* Replaced "blue UI" icons
+	* Changed the server icon
+	* The "save server" process has been streamlined, and is less vulnerable to a race condition
+	* Chat toolbars cleaned up
+	* Window state buttons on the chat toolbars are now hidden if the toolbar is docked
+	* Created a "blank" icon (to display no icon if desired)
+	* New icons for operators and voiced users
+	* Reorganized the resource folder, and updated build scripts to match
+	* Added an option to play a sound when a non-active chat window receives a message
+	* Added a commandline flag to disable sounds
+	* Added a commandline flag to disable loading and saving stored server information
+	* Converted saved servers file to JSON
+	* Changed saved server filename to "history.json"
+	* Saved servers can now contain passwords
+	* Server password entry in the "connect to server" dialog is now masked
+	* Changed wording in the GUI and commandline from "saved server" to "connection history"
+	* Added an option to play a sound when the user's nick is mentioned in public chat
+	* Added a commandline option to throttle audio notifications
+	* Rearranged settings menu
+	* Changed the "font" icon
+
+Version 0.411
+	* Added a commandline flag to force the profanity filter on
+	* Added a commandline flag to force no IRC color display
+	* Changed the name of the "Ərk" menu to "IRC"
+	* Cleaned up the server information menu
+	* Added a "change nick" entry to the server information menu
+	* Added a commandline flag to disable the system tray icon
+	* Force profanity/no colors commandline options are reflected in the GUI
+	* Turning off chat logging from the commandline is now reflected in the GUI
+	* Added a commandline command to zip all installed plugins into an archive
+	* Added commandline commands to export all logs to text or html (in an archive)
+	* Added a "disconnect" option to the system tray icon menu
+	* Fixed a bug in the code generator
+	* Added a "plugins" menu to the systray icon menu (identical to the main "plugins" menu)
+	* Moved the "window" settings in the systray menu to it's own submenu
+	* Cleaned up the text in the "Display" menu
+	* Moved "URLs to hyperlinks" from the "Settings" menu to the "Display" menu
+	* Renamed the "Text Colors" menu entry to "Colors"
+	* Added the ability to disable plugins (plugin names, if placed in the "disabled.txt" file, will be disabled)
+	* Added a commandline option to list all installed plugins
+	* Removed system information from the "About" dialog
+	* A system message is now displayed while trying to connect to a server
+	* Users can now send emojis in messages (using colon codes like :innocent: or :smirk:)
+	* Emoji colon codes can be disabled (or enabled) from the "Settings" menu
+	* Added information for the "emoji" Python library to the "About" dialog
+	* Added support for ASCIImoji colon codes in messages
+	* Added information for "ASCIImojis" to the "About dialog"
+	* ASCIImoji colon codes can be disabled from the "Settings" menu
+	* Emoji colon codes are now disabled by default
+	* ASCIImoji colon codes are now enabled by default
+	* Emojis/ASCIImojis are now injected into messages sent by plugins (if they are enabled)
+	* Moved emoji settings to their own menu
+	* Added WWW links to emoji/ASCIImoji colon code lists
+	* Patched two missing ASCIImojis to the built-in list
+
+Version 0.410
+	* Quirc is now known as "Erk"
+	* Source code has been updated to reflect the new name
+	* The application icons and logo have been changed to reflect the new name
+	* Fixed a bug (during server registration, if the users nick is already taken, the client would crash)
+	* Fixed a bug in the "about" dialog (some links were non-functional)
+	* Added the theme compiler repo to the "help" menu
+	* Changed the name of the plugin editor to "Kōd"
+	* Updated connection log banner
+	* Changed in-application name display to "Ərk"
+	* Fixed a bug (blank or whitespace chat would be sent to the server on pressing enter)
+	* Moved "restart" menu trigger to the theme menu
+	* Isolated resources I don't want users editing (app icon, etc) into its own resource file
+	* Removed isolated resources from the theme compiler
+	* Themes are now included in the make_dist script, as is the Erk icon
+	* Removed "hover on link mouse pointer change" option (it was stupid and waaaaay slower than default Qt)
+	* Renamed "server uptime" to "connection uptime" as it's more accurate
+	* Moved "use theme icons" menu setting to the "view" menu
+	* Changed the default log banner text to "It's how you pronounce IRC"
+	* Changed "Kōd" icon
+	* When using a plugin/command generator in Kōd, the generated text's indentation will now match the user's indentation settings
+	* Fixed a bug where an incorrect initial directory was shown on the editor's "exit save"
+	* Fixed a bug where nick highlighting was case sensitive
+	* Changed to a new versioning system (MAJOR VERSION.MINOR VERSION)
+	* The text entry widget will no longer send IRC messages that consist of only whitespace, or are blank
+	* Added event template generators to the editors context menu
+	* Made the editor context menu prettier
+	* Added a option to generate a plugin bootstrap to the editor's context menu
+	* Added an "about" dialog to the plugin editor
+	* If any "about" dialog is summoned, any mazimized windows will be normalized
+	* Removed the repetitive "official"s from the about menu
+	* Added platform information to the "About" dialogs
+	* Added a "help" menu to the editor
+	* Moved the "about kod" menu entry to the help menu in the editor
+	* Added an optional profanity filter
+	* Renamed the "View" menu to "Display"
+	* Re-organized the "Settings" menu
+	* Added an option to display channel topics in the title of channel windows
+	* Added an option to strip IRC colors from incoming messages
+	* Fixed a bug where the "find" dialog would display incorrectly if the parent editor window was maximized
+	* Added a "find and replace" option to the editor's "Edit" menu
+	* Added a "find and replace" dialog
+	* Window status bar is now off by default
+	* Added a system tray icon option (off by default)
+	* Added an option to cause the system tray icon to flash on receipt of a message (if the window is minimized)
+	* Moved system tray icon settings to the "Display" menu
+	* Added a context menu to the system tray icon
+	* Added a limit to the size of displayed logs (should speed up performance)
+	* Users can now control how much of the log is loaded for display (or even if it is loaded at all)
+	* Changed build script (and application code) to inject minor version number into the software
+	* Added an option to turn the system tray icon right-click menu on and off
+	* Added code to update any existing configuration files with new settings at default values
+	* Moved non-code data files in the Erk module into their own directory
+	* Moved user configuration files to its own directory in the "settings" directory named "user"
+	* Cleaned up server toolbars (buttons for channel list and join channel are now in the server info menu, etc.)
+	* Cleaned up the server info menu
+	* "Flattened" the disconnect button on the server toolbars
+
+Version 0.400
+	* New major version
+	* Changed the order in which commandline options and flags are displayed
+	* Fixed a bug in mode parsing
+	* Removed text color and background color from display functions
+	* Fixed a bug in the command history (if the history was empty, the client would crash on keyUp or keyDown)
+	* Fixed a bug where the disable plugins setting would never be saved
+	* Added a theme system (uses QSS to style widgets)
+	* "Display Connection Log" setting has been removed from the configuration
+	* Connection log is always shown on startup
+	* Removed old cruft-code from the chat window code
+	* Themes now have their own display configuration file; changes made are saved to the active theme's file
+	* Themes can now use a custom icon
+	* The settings menu has been rearraged
+	* "Auto join on invite" has been moved to the IRC menu
+	* "Edit default user information" has been moved to the IRC menu
+	* "Ignored users" has been moved to the IRC menu
+	* Added a commandline option to generate a default configuration file
+	* Added a commandline option to generate a default display configuration file
+	* Added a commandline flag to display version and exit (-v,--version)
+	* Added a commandline flag to display licence and exit (-l,--license)
+	* Added a commandline option to load a theme on startup
+	* Added a commandline option to install a theme (or themes) from a zip archive
+	* "Change URLs in chat to hyperlinks" is now on by default
+	* Added a commandline option to disable themes
+	* Added a menu option to rescan the theme directory for new themes
+	* Theme text colors are ALWAYS displayed, even in loaded chat logs
+	* Theme text colors are applied when changing themes while running
+	* Fixed a bug where QSS styles weren't being applied to context menus
+	* Themes can now use a special banner image that will be printed to the connection log on startup
+	* Themes can now customize the text printed below the banner on startup
+	* Themes can set the text and background color of the new chat divider
+	* Added a "high contrast" theme
+	* Fixed a bug where the new chat divider wouldn't get updated on theme application
+	* A check mark is now displayed next to the active theme in the theme selection sub-menu
+	* Moved the show/hide log menu option to the top of the settings menu
+	* Moved "reconnect if disconnected" setting to the connection dialogs
+	* Removed "reconnect if disconnected" setting from the main configuration file
+	* Moved "open windows for private messages" to the IRC menu
+	* Consolidated theme images into a subfolder of the theme, "images"
+	* Added the ability to customize window icons and user icons in themes
+	* The "hourglass" mouse pointer is no longer displayed while connecting to a server
+	* The mouse pointer changes to a pointing hand when the user hovers over a hyperlink in chat
+	* Added a dialog to change some of the text colors used in the chat display
+	* Fixed a bug in the "about" dialog (clicking on the pyspellchecker link did nothing)
+	* Changing the mouse to a pointing hand when hovering over links can be turned on/off
+	* Added a "help" menu to the main GUI
+	* Consolidated settings from most menus in the "settings" menu
+	* Fixed a bug where the main window would retain the title of the last main child window on disconnect
+	* Moved the "about" menu trigger to the "help" menu
+	* Themes can now have their own resources file (for custom graphics, icons, etc)
+	* Added a setting for whether a theme's resource file will be loaded or not
+	* Changed text JSON file in themes to "text.json"
+	* Moved the function call generators to the top of the context menu in the plugin editor
+	* Changed text color settings file name to "text.json", same as in themes
+	* Moved the server information widget to the beginning of server toolbars
+	* Created a new menu, "View", and moved widget viewing settings to it
+
+Version 0.303
+	* Stripped gradients from user name display in chat
+	* Removed the colour library
+	* Removed colour lib reference from "about" dialog
+	* Fixed a bug in userlist rendering
+	* Fixed a bug where renaming yourself would cause your new nick to appear wrong in the user display
+	* Fixed a bug where user renames weren't being handled locally
+	* Removal from user list for kicked users is now handled locally
+	* Combined "setMode" and "unsetMode" plugin methods into a single method named "mode"
+	* Added function call generator for mode()
+	* Added getUsers() plugin method
+	* Fixed a bug in renaming self (didn't always remember the new nickname)
+	* Added suppress() and unsuppress() plugin methods
+	* Added getWindows() and serverIDtoHost() plugin methods
+	* Ensured that no duplicate serverIDs are generated
+	* Plugins were being imported and then re-imported on load; plugins now only import once
+	* Added editor windows to the "Windows" menu
+	* Fixed a bug where the editor would display "QPyEdit" as its name (older version)
+	* Main application title is set to default if all windows have been closed
+	* Set the plugin editor's name in quirc.common
+	* Reworked Quirc's command line flags
+	* Added --maximize commandline flag
+	* Changed --server and --port command line options to positional arguments
+	* Defaults are now displayed in command line help
+	* If a server/port pair (ie, SERVER:PORT) is passed as an argument, the server and port are extracted and used
+	* Added code to use different file names for configuration loading and saving
+	* Added --config and --display command line option for loading custom configuration files
+	* IRC URLs can now be passed as a commandline argument
+	* Removed --style commanline option
+	* Added a copyright notification to the --help text
+	* Fixed a bug in the command code generator
+	* Added an option to set the number of arguments of a command in the command generator
+	* Added a "channel list" button to server toolbars and a new dialog listing channels on a server
+	* Added --install; users can install plugins from a zip archive
+	* Added --channel option for joining a specific channel on join
+	* Log tracking by network is now turned on by default
+	* Automatic reconnection is now turned off by default
+	* Added an option to enable/disable (disabled by default) the channel list toolbar button
+	* System messages now use (almost) the same HTML template as chat messages
+	* Added an option to turn off auto-chat loggins
+	* Combined the "Options" and "Display" menus into a single menu ("Settings")
+	* Tweaked the "Plugins" menu
+	* Usernames in the userlist context menu are no longer clickable
+	* Fixed a bug where server names may not display correctly while connecting
+	* IRC network links have been added to the server info menu
+	* Changed system messages to differentiate connecting from registering
+	* Added an ASCII logo to the commandline help dialog
+	* Added --nologs option to prevent log save on window close
+	* Added --nosettings option to disable the settings window
+	* Added --noeditor option to disable QuircEdit
+	* Added --nowindows to disable the windows menu
+	* Added an optional spell checker for user input
+	* Added multi-language support to spell checker (english, french, spanish, and german)
+	* Added correct spelling suggestions to the right click context menu on the user input widget
+	* User input widget can now auto-complete commands and user nicks/current channel
+	* Auto-complete is now aware of all channels the user is in on the server the window is associated with
+	* Fixed a bug where auto-complete confused channels with nicks
+	* Messages with the user's nickname can now be optionally highlighted
+	* Fixed a bug where nicks might be used when trying to autocomplete a channel name
+	* Fixed a bug in notice display
+	* If user nick highlighting is turned on, the user's nick will be highlighted in CTCP action messages
+	* Fixed command history in the user input widget
+	* Added a status bar (can be hidden with settings)
+
+Version 0.302
+	* Added --top command line flag (Quirc's window always on top)
+	* Added --path command line option (adds directory's to python's path)
+	* Added --style command line option (set Quirc's window style)
+	* Added --interval command line option (set keep-alive heartbeat interval)
+	* Added --nossl command line flag (disables SSL)
+	* Added --fullscreen command line flag (displays Quirc in full screen mode)
+	* Added a shared dictionary (named Shared) for all plugins
+	* Added /nick command
+	* Added alternate nickname option to GUI dialogs
+	* Added --server, --port, --password, and --ssl command line options to connect to a server on startup
+	* Added --nick, --username, --realname, and --alternate command line options to set default user info
+	* Cleaned up channel window menu
+	* Any errors while loading plugins are displayed to the user
+	* Added an option to supress plugin load error display
+	* Autojoin setting files have been moved to their own directory
+	* Fixed bugs in server channel window menu entries
+	* Added some icons
+	* Fixed a bug in built-in plugin methods
+	* Fixed a bug with displaying plugin-generated chat
+	* "Hourglass" cursor is displayed when trying to connect to a server
+	* Visibility of connection log is now tracked if hidden via menu or manual close
+	* Added the /color command
+	* Fixed a bug in the plugin "action" method
+	* All plugin IRC methods can optionally specify what server to send the command to
+	* Added the --editor command line flag to open QuircEdit in Quirc
+	* Added the --open command line optio to open a file in QuircEdit in Quirc
+	* Plugin methods that get IRC server information can now specify the connection to get the information from
+	* Plugin methods for public and private message are now called for outgoing chat
+	* Added the first version of the Quirc plugin documentation
+	* Added mIRC color code support
+	* Added the color plugin method
+	* Double quotes in plugin names and description are now properly escaped
+	* Punctuation and whitespace are now properly stripped from class names in the plugin generator
+	* Added in support for the IRC formatting codes for underline, bold, and italic
+	* Plugins can be reloaded (allows for editing plugins while running)
+	* Fixed a bug in the editor ("new plugin" didn't disable "save" menu option)
+	* Move "restart quirc" menu option to the main "IRC" menu
+	* Generated plugin command code are now case-insensitive for command recognition
+	* Added function call generators for msg(), notice(), action(), join(), part(), print(), away(), back(), and color()
+	* Added function call generators to QuircEdit's right click menu
+	* Channel user list display now handles joined and parted users locally
+	* Changed the "user quit" plugin event name to "server_quit"
+	* Changed the "got motd" plugin event name to "server_motd"
+	* Fixed a bug in th "Windows" menu (selected windows are now brought to the front)
+	* Added an option to disable plugin event execution
+	* Redesigned the plugin menu
+	* Fixed a bug where the "show connection log" option would always be false
+
+Version 0.301
+	* Added the /topic command
+	* Fixed a bug with operator and voiced user detection
+	* Added the ability to ignore messages from specific users
+	* Added "about" dialog
+	* Added a "raw data" event for plugins
+	* Moved connection settings to the "IRC" menu
+	* Added an option to convert URLs in chat to hyperlinks
+	* Re-arranged the menus to make a bit more sense
+	* Changed setting names in settings.json
+	* Added options to set special plugin attributes in the template generator
+	* Added "noirc" special attribute to plugins, and to the plugin generator
+	* Reworked the "Plugins" menu
+	* Fixed a bug in the /topic command
+	* Added server information menu to toolbar
+	* Added kick event to plugins
+	* Kicks are now handled and displayed by the main client
+	* The client being kicked from a channel is now handled properly
+	* Added channel banlist to the channel window info menu
+	* Added ban, unban, and kick/ban to the userlist context menu
+	* Channel bans are now displayed properly in chat
+	* Added /oper command
+	* Server errors are now displayed in red text
+	* Sent channel invitation are now documented in the client
+	* User is notified if they receive IRCop status
+	* "Quit" now correctly removes users from userlists
+	* Added /whowas command
+	* Added option to set application title to the current chat
+	* Fixed a bug in the /topic command
+	* Changed the client setting file name to "quirc.json" from "settings.json"
+	* Changed the editor setting file name to "quircedit.json" from "editor.json"
+	* Added an option to track chat logs by network name instead of server/port
+	* Added the /quit command
+	* Added an option to the editor for the "find" window to always be on top
+	* Changed setting file setting names to be human readable
+	* Current lines of code: ~5,800. Not bad for a GUI IRC client :-)
+	* Added option to editor to use 1 space for indent
+	* Added option for chat windows to be set to always on top
+
+Version 0.300
+	* Complete re-factor
+	* Support for multiple servers
+	* Added plugin support
+	* New commands: /help, /msg, /notice, /me, /join, /part, /away, /back, /invite, /kick
+	* Added in plugin editor
+	* Plugin editor now has settings for indentation, font, and word wrap
+
+Version 0.233
+	* Added new features to QPyEdit: select all, cut, copy, paste, undo, redo, zoom in, zoom out
+	* Undo and redo in QPyEdit are only enabled if the desired function is available
+	* Cut and copy are only enabled if the desired function is available
+	* Plugin documentation now contains template usage information
+	* Added msgbox method to the Plugin object
+	* Added getstring, getinteger, getdouble, and getlist methods to the Plugin object
+	* Added getfile and getsave methods to the Plugin object
+	* Added delay method to the Plugin object (sets a function to execute after a delay)
+	* Added search functions to the plugin editor
+	* Added /invite command
+	* Added "auto-join channel on invite" option
+	* Channel modes sent when joining a channel are handled properly
+	* Added the /list command
+	* List command is disabled (due to a bug in Twisted)
+	* Added /version command
+	* Made the "Ignored Users" dialog non-modal
+	* Added command templates to the plugin editor
+	* Renamed the "Plugin" menu in the plugin editor to "Templates"
+	* Changed the name of the editor to "QuircEdit"
+	* quirc.py now has a commandline option to run the plugin editor rather than the full client
+	* Added the getNickname Plugin method
+	* Added the getUptime Plugin method
+	* Added _tag attribute to plugins (for tracking)
+	* Added clearDelay Plugin method
+	* Fixed a connection bug
+	* Added option to remove size grip from the status bar
+	* Users can "reload plugins" to update with new plugins from the "Plugins" menu
+	* Errors encountered on plugin load are now displayed to the user
+	* Private user chat windows now have their own window icon
+	* Added getUserlist, getStatuslist, getHost, ignore, and unignore Plugin methods
+	* Added new plugin events: event_kick and event_quit
+	* Added event_invite plugin event method
+	* event_join will now trigger when the client joins a channel
+	* Added getTopic plugin method
+	* Changed the "Template" menu name (in QuircEdit) to "Plugin"
+	* Updated method template to reflect all commands
+	* Moved code snippets to "Snippets" menu (in QuircEdit)
+	* Added a new template: universal command (commands available to all windows)
+	* Added colorText, rainbowText, boldText, underlineText, italicText, opped, and voiced plugin methods
+
+Version 0.232
+	* Removed hotkeys for "Connect to Server", "Connect to Network", and "Ignored Users"
+	* Added /away and /back commands
+	* Command usage information is now displayed in red
+	* Added "Set topic" menu option to channel windows
+	* Channel topics set to "" are now displayed to the user
+	* Set channel modes are displayed in the "Channel" menu
+	* Added "ignore user" to the private chat window menu
+	* "Close" button on the server window only hides the window
+	* "Close" button on channel window will cause the client to leave the channel before closing the window
+	* Windows can be restored/raised with a hotkey
+	* Added user information to the status bar
+	* Added in a plugin system so users can expand functionality
+	* Added a GUI plugin editor, QPyEdit
+	* Added /docs directory, containing a PDF version of the plugin documentation
+	* Added templates to the editor for quickly adding plugins and commands
+
+Version 0.231
+	* Initial alpha release
