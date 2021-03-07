@@ -56,8 +56,6 @@ CHAT_HELP = []
 COMMAND_HELP_ENTRIES = []
 CHAT_HELP_ENTRIES = []
 
-PLUGIN_HELP_ENTRIES = []
-
 def buildHelp():
 
 	global COMMON_COMMANDS
@@ -434,13 +432,6 @@ def handle_channel_input(window,client,text):
 								t = t.replace("%_DESCRIPTION_%",m.help)
 							hdisplay.append(t)
 
-			# if not client.gui.block_plugins:
-			# 	for e in PLUGIN_HELP_ENTRIES:
-			# 		t = HELP_ENTRY
-			# 		t = t.replace("%_USAGE_%",e[0])
-			# 		t = t.replace("%_DESCRIPTION_%",e[1])
-			# 		hdisplay.append(t)
-
 			CHAT_HELP_DISPLAY = CHAT_HELP_HTML_TEMPLATE.replace("%_LIST_%","\n".join(hdisplay))
 			msg = Message(PLUGIN_MESSAGE,'',CHAT_HELP_DISPLAY)
 			window.writeText(msg,True)
@@ -540,13 +531,6 @@ def handle_private_input(window,client,text):
 							else:
 								t = t.replace("%_DESCRIPTION_%",m.help)
 							hdisplay.append(t)
-
-			# if not client.gui.block_plugins:
-			# 	for e in PLUGIN_HELP_ENTRIES:
-			# 		t = HELP_ENTRY
-			# 		t = t.replace("%_USAGE_%",e[0])
-			# 		t = t.replace("%_DESCRIPTION_%",e[1])
-			# 		hdisplay.append(t)
 
 			CHAT_HELP_DISPLAY = CHAT_HELP_HTML_TEMPLATE.replace("%_LIST_%","\n".join(hdisplay))
 			msg = Message(PLUGIN_MESSAGE,'',CHAT_HELP_DISPLAY)
@@ -751,13 +735,6 @@ def handle_common_input(window,client,text):
 							else:
 								t = t.replace("%_DESCRIPTION_%",m.help)
 							hdisplay.append(t)
-
-			# if not client.gui.block_plugins:
-			# 	for e in PLUGIN_HELP_ENTRIES:
-			# 		t = HELP_ENTRY
-			# 		t = t.replace("%_USAGE_%",e[0])
-			# 		t = t.replace("%_DESCRIPTION_%",e[1])
-			# 		hdisplay.append(t)
 
 			CHAT_HELP_DISPLAY = CHAT_HELP_HTML_TEMPLATE.replace("%_LIST_%","\n".join(hdisplay))
 			msg = Message(PLUGIN_MESSAGE,'',CHAT_HELP_DISPLAY)

@@ -840,7 +840,7 @@ class Dialog(QDialog):
 
 		entry = QListWidgetItem()
 		entry.setTextAlignment(Qt.AlignHCenter|Qt.AlignVCenter)
-		entry.setText("Extensions")
+		entry.setText("Scripting")
 		entry.widget = self.featuresPage
 		entry.setIcon(QIcon(SCRIPT_ICON))
 		self.selector.addItem(entry)
@@ -886,24 +886,32 @@ class Dialog(QDialog):
 		if self.parent.cmdline_script:
 			self.enableMacros.setEnabled(False)
 
-		scgbLayout = QVBoxLayout()
-		scgbLayout.addWidget(self.scriptMisc)
-		scgbLayout.addWidget(self.seditMisc)
-		scgbLayout.addWidget(self.sglobalMisc)
-		scgbLayout.addWidget(self.enableMacros)
-		scgbLayout.addWidget(self.saveMacros)
-		scgbLayout.addWidget(self.autoMacros)
+		# scgbLayout = QVBoxLayout()
+		# scgbLayout.addWidget(self.scriptMisc)
+		# scgbLayout.addWidget(self.seditMisc)
+		# scgbLayout.addWidget(self.sglobalMisc)
+		# scgbLayout.addWidget(self.enableMacros)
+		# scgbLayout.addWidget(self.saveMacros)
+		# scgbLayout.addWidget(self.autoMacros)
 
-		scriptBox = QGroupBox("Script Settings",self)
-		scriptBox.setLayout(scgbLayout)
+		# scriptBox = QGroupBox("Script Settings",self)
+		# scriptBox.setLayout(scgbLayout)
 
-		scriptBox.setStyleSheet("QGroupBox { font: bold; } QGroupBox::title { subcontrol-position: top center; }")
+		# scriptBox.setStyleSheet("QGroupBox { font: bold; } QGroupBox::title { subcontrol-position: top center; }")
 
 		if self.parent.cmdline_script:
 			scriptBox.setEnabled(False)
 
 		cpLayout = QVBoxLayout()
-		cpLayout.addWidget(scriptBox)
+		#cpLayout.addWidget(scriptBox)
+
+		cpLayout.addWidget(self.scriptMisc)
+		cpLayout.addWidget(self.seditMisc)
+		cpLayout.addWidget(self.sglobalMisc)
+		cpLayout.addWidget(self.enableMacros)
+		cpLayout.addWidget(self.saveMacros)
+		cpLayout.addWidget(self.autoMacros)
+
 		cpLayout.addStretch()
 
 		self.featuresPage.setLayout(cpLayout)
