@@ -886,25 +886,10 @@ class Dialog(QDialog):
 		if self.parent.cmdline_script:
 			self.enableMacros.setEnabled(False)
 
-		# scgbLayout = QVBoxLayout()
-		# scgbLayout.addWidget(self.scriptMisc)
-		# scgbLayout.addWidget(self.seditMisc)
-		# scgbLayout.addWidget(self.sglobalMisc)
-		# scgbLayout.addWidget(self.enableMacros)
-		# scgbLayout.addWidget(self.saveMacros)
-		# scgbLayout.addWidget(self.autoMacros)
-
-		# scriptBox = QGroupBox("Script Settings",self)
-		# scriptBox.setLayout(scgbLayout)
-
-		# scriptBox.setStyleSheet("QGroupBox { font: bold; } QGroupBox::title { subcontrol-position: top center; }")
-
 		if self.parent.cmdline_script:
 			scriptBox.setEnabled(False)
 
 		cpLayout = QVBoxLayout()
-		#cpLayout.addWidget(scriptBox)
-
 		cpLayout.addWidget(self.scriptMisc)
 		cpLayout.addWidget(self.seditMisc)
 		cpLayout.addWidget(self.sglobalMisc)
