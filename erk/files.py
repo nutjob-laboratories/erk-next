@@ -38,6 +38,7 @@ import string
 import random
 from datetime import datetime
 import zipfile
+from pathlib import Path
 
 from .strings import *
 from .objects import *
@@ -54,7 +55,7 @@ DATA_DIRECTORY = os.path.join(ERK_MODULE_DIRECTORY, "data")
 AUTOCOMPLETE_DIRECTORY = os.path.join(DATA_DIRECTORY, "autocomplete")
 
 # Base directory for config files
-BASE_DIRECTORY = os.path.join(INSTALL_DIRECTORY, "config")
+BASE_DIRECTORY = os.path.join(str(Path.home()), ".erk")
 if not os.path.isdir(BASE_DIRECTORY): os.mkdir(BASE_DIRECTORY)
 
 # Configuration directories
