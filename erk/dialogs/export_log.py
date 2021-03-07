@@ -31,6 +31,7 @@
 
 import sys
 import os
+from pathlib import Path
 
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
@@ -41,8 +42,7 @@ from ..resources import *
 
 INSTALL_DIRECTORY = sys.path[0]
 
-BASE_DIRECTORY = os.path.join(INSTALL_DIRECTORY, "config")
-if not os.path.isdir(BASE_DIRECTORY): os.mkdir(BASE_DIRECTORY)
+BASE_DIRECTORY = os.path.join(str(Path.home()), ".erk")
 
 LOG_DIRECTORY = os.path.join(BASE_DIRECTORY, "logs")
 
