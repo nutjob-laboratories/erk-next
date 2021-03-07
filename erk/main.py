@@ -509,7 +509,6 @@ class Erk(QMainWindow):
 				self.mainMenu = QMenu()
 				self.settingsMenu = QMenu()
 				self.helpMenu = QMenu()
-				self.toolsMenu = QMenu()
 
 		if not DO_NOT_DISPLAY_MENUS_OR_TOOLBAR:
 			self.buildMenuInterface()
@@ -658,13 +657,27 @@ class Erk(QMainWindow):
 		if not self.block_settings:
 
 			if USE_QT5_QMENUBAR_INSTEAD_OF_TOOLBAR:
-				self.settingsMenu = self.menubar.addMenu("Settings")
+				self.settingsMenu = self.menubar.addMenu("Settings && Tools")
 			else:
 				self.settingsMenu.clear()
-				add_toolbar_menu(self.toolbar,"Settings",self.settingsMenu)
+				add_toolbar_menu(self.toolbar,"Settings && Tools",self.settingsMenu)
 
 			entry = MenuAction(self,SETTINGS_MENU_ICON,"Preferences","Change "+APPLICATION_NAME+" settings",25,self.showSettingsDialog)
 			self.settingsMenu.addAction(entry)
+
+			self.settingsMenu.addSeparator()
+
+			showEditor = True
+			if self.block_editor: showEditor = False
+			if self.block_scripts: showEditor = False
+
+			if showEditor:
+				entry = MenuAction(self,SCRIPT_EDITOR_MENU_ICON,SCRIPT_EDITOR_NAME,"Create, edit, and run scripts",25,self.showScriptEditor)
+				self.settingsMenu.addAction(entry)
+
+			if not self.block_styles:
+				entry = MenuAction(self,STYLE_MENU_ICON,STYLE_EDITOR_NAME,"Create and edit styles",25,self.showStyleDialog)
+				self.settingsMenu.addAction(entry)
 
 			entry = MenuAction(self,EXPORT_MENU_ICON,"Export Logs","Export chat logs to various formats",25,self.menuExportLog)
 			self.settingsMenu.addAction(entry)
@@ -734,33 +747,6 @@ class Erk(QMainWindow):
 			self.settingsMenu.addAction(self.set_full)
 
 			if self.fullscreen: self.set_full.setText("Exit full screen more")
-
-		# Tools menu
-
-		show_tool_menu = True
-		if self.block_styles:
-			if self.block_scripts:
-				show_tool_menu = False
-
-		if show_tool_menu:
-
-			if USE_QT5_QMENUBAR_INSTEAD_OF_TOOLBAR:
-				self.toolsMenu = self.menubar.addMenu("Tools")
-			else:
-				self.toolsMenu.clear()
-				add_toolbar_menu(self.toolbar,"Tools",self.toolsMenu)
-
-			showEditor = True
-			if self.block_editor: showEditor = False
-			if self.block_scripts: showEditor = False
-
-			if showEditor:
-				entry = MenuAction(self,SCRIPT_EDITOR_MENU_ICON,SCRIPT_EDITOR_NAME,"Create, edit, and run scripts",25,self.showScriptEditor)
-				self.toolsMenu.addAction(entry)
-
-			if not self.block_styles:
-				entry = MenuAction(self,STYLE_MENU_ICON,STYLE_EDITOR_NAME,"Create and edit styles",25,self.showStyleDialog)
-				self.toolsMenu.addAction(entry)
 
 		# Help menu
 
